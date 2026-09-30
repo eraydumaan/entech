@@ -225,7 +225,7 @@ h1 > span {
 }
 .hero-demo {
   font-size: 10px;
-  color: #6c7a8c;
+  color: #56667b;
   margin: 15px 0 0;
 }
 /* Tamamen statik ürün konsepti: bu panel etkileşimli uygulama değildir. */
@@ -704,7 +704,7 @@ h2 {
 }
 .channels small {
   font-size: 10px;
-  color: #7e8c9e;
+  color: #596d84;
   margin-top: 1px;
 }
 .flow-lines {
@@ -786,7 +786,7 @@ h2 {
   justify-content: center;
 }
 .service-number {
-  color: #9daabc;
+  color: #617189;
   font:
     11px var(--font-geist-mono),
     monospace;
@@ -915,7 +915,7 @@ h2 {
   border-top: 1px solid #d8e2ef;
   padding-top: 23px;
   max-width: 390px;
-  color: #5c7492;
+  color: #536983;
 }
 .demo-box > svg {
   margin-top: 2px;
@@ -966,7 +966,7 @@ h2 {
 }
 .form-note {
   font-size: 12px;
-  color: #718098;
+  color: #586b83;
   margin: 20px 0 17px;
 }
 fieldset {
@@ -1062,7 +1062,7 @@ form .button {
 .site-footer p,
 .site-footer > span {
   font-size: 10px;
-  color: #73829a;
+  color: #586b83;
   margin: 12px 0 0;
 }
 .site-footer > span {

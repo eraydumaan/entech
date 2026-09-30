@@ -14,3 +14,7 @@
 4. README.md ve AI_LOG.md aynı commit içinde.
 
 Sunucunun kabul ettiği son teslimdeki commit değerlendirilir. Sonraki push teslimi kendiliğinden değiştirmez. Bu dosya değerlendirme sitesine gönderim yapıldığı anlamına gelmez.
+
+## Erişim durumu
+
+Kod GitHub main dalına gönderildi. Anonim erişim 404 döndü; değerlendirici için repo daveti veya uygun erişim sağlanmalı. Gizliliği değiştirilmedi. Vercel cihaz girişi tamamlanana kadar canlı yayın bekliyor.

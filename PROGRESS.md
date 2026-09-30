@@ -1,41 +1,33 @@
-# İlerleme / devam notu
+# Güncel ilerleme — teslim hazırlığı
 
-## Tamamlanan
+## Tamam
 
-- Akış: küçük teknik servis işletmeleri için kurgusal otomasyon hizmeti.
-- Next.js 16.3.7, React 19.2.8, JavaScript, CSS; Türkçe başlangıç içeriği ve metadata.
-- Ortak doğrulama: isim 2–50, e-posta en fazla 254, açıklama 10–2000; üç hizmet.
-- pg havuzu, server-only DB modülü, parametreli INSERT ve POST /api/requests.
-- DATABASE_URL kullanıcı tarafından .env.local içine yazıldı. Bu dosya Git dışında; içeriğini yazdırma.
-- Neon PostgreSQL 17.11 bağlantısı doğrulandı. 001 migration uygulandı.
-- scripts/setup-db.mjs ve scripts/verify-db.mjs, npm db:setup/test:integration komutları.
-- Gerçek kurgusal kayıt ID 1, UTC 2026-09-30T12:38:46.109Z. API 201, bağımsız okuma ve yeniden bağlantı okuması başarılı. Kayıt kanıt olarak saklandı.
-- 51 karakter API ve DB tarafından reddedildi; ek kayıt oluşmadı.
-- npm run lint ve 16 birim testi başarılı.
+- Next.js 16.3.7, React 19.2.8, JavaScript/CSS landing page.
+- İstemci ve sunucuda dört alan doğrulaması; isim 2–50.
+- POST /api/requests, parametreli pg sorgusu, server-only DB modülü.
+- Neon PostgreSQL tablosu; gerçek kayıt ID 1 ve tarayıcı kaydı ID 3 bağımsız DB sorgularıyla doğrulandı.
+- Gönderiliyor/başarı/hata; hata halinde değer koruma; eşzamanlı ikinci submit kilidi.
+- Statik ürün konsepti açık etiketli; gerçek otomasyon/dashboard iddiası yok.
+- 16 test, lint ve production build geçti.
+- Masaüstü 1440px, mobil 390px/320px, tablet 768px yatay taşma kontrolleri geçti.
+- Son sınırlı DOM kontrast kontrolünde 41 metin, başarısız eşik 0. Tam WCAG denetimi değildir.
+- README, AI_LOG, docs/DECISIONS, docs/VERIFICATION, DELIVERY dosyaları mevcut.
+- İlk commit 928e662f931ad0c89d55ffbc8533382ec1760fd6 GitHub main dalına gönderildi. Son değişiklikler ayrıca commit edilecek.
 
-## Sıradaki aşamalar
+## Bekleyen gerçek dış bağımlılıklar
 
-1. TAMAM: Form, ortak doğrulama, hata odağı, gönderim kilidi ve başarı/hata durumları. Gerçek tarayıcı kayıt ID 3 ayrıca DB sorgusuyla doğrulandı.
-2. TAMAM: İlk responsive görünüm ve üç hizmet açıklaması. Yeni hizmet bölümü masaüstü ve 390px mobil ekranlarda incelendi; üç kart mevcut, yatay taşma yok.
-3. Form için masaüstü/390px mobil, klavyeyle gerçek kayıt, kontrollü 503, çift gönderim testleri ve build/lint başarılı. Hizmet bölümü sonrası lint ve masaüstü/mobil kontrol başarılı.
-4. Vercel canlı yayın, gizli ortam ayarı, canlı kayıt doğrulaması.
-5. Belgeler, gerçek emek süresi, final commit ve teslim ekranı.
+1. Vercel oturumu: CLI cihaz girişi başlatıldı. CLI --global-config .vercel-cli kullanıyor; standart profil yolu EXDEV verdi. Giriş adayı gerektiriyor. Bağlı Vercel aracının team listesi boş.
+2. GitHub değerlendirici erişimi: anonim URL 404; git push başarılı. Kullanıcıdan erişim talimatı istendi. Depoyu kendiliğinden public yapma.
+3. Başvurudaki yazılı senaryo/geçmiş proje katkısı: kullanıcıya yanıtlayıp yanıtlamadığı soruldu; kişisel deneyim uydurma.
 
-## Sınırlar
+## Oturum gelince tamamlanacaklar
 
-- Yerel uygulama şu an Neon kullanıyor. Bilgisayardaki PostgreSQL 17.5 uygulamaya bağlanmadı.
-- Form, ilk görsel/klavye kontrolleri ve build tamamlandı. Canlı web yayını yok.
-- Dağıtık rate limiting/idempotency yok.
-- pg TLS modu gelecek sürüm uyarısı var; mevcut bağlantı başarılı, TLS doğrulaması kapatılmadı.
+- Vercel hesabı ve ücretsiz plan kapsamını doğrula; proje adı entech/akis-entech için link.
+- DATABASE_URL değerini .env.local dosyasından güvenli stdin ile Production ortama aktar; çıktı veya komut argümanına yazma.
+- Production deploy; canlı URL, HEAD/HTML, invalid POST, gerçek kurgusal kayıt, bağımsız DB okuması ve tarayıcı akışı kontrolü.
+- DELIVERY ve doğrulama belgesine canlı kanıtları ekle, final commit/push ve kaynak/yayın eşleşmesini doğrula.
+- Kullanıcıya canlı URL, repo ve tam commit SHA ver. Değerlendirme sitesine teslim edilmediyse edildiğini söyleme.
 
-## Çalışma biçimi
+## Kurallar ve sınırlar
 
-Kodlamayı Codex yürütür; her küçük aşamada neyin neden değiştiğini ve neyin doğrulandığını açıklar. Kullanıcı step-by-step öğrenmek istiyor; açıklamasız tüm ürün bir anda yazılmaz. Alt ajan kullanılmıyor. Normal terminal sandbox kurulum hatası veriyor; izinli require_escalated exec çalışıyor.
-
-Son teslim: 01.10.2026 15:10:36 İstanbul. Sunucunun kabul ettiği son teslimdeki commit değerlendirilir; sonraki push teslimi kendiliğinden değiştirmez.
-
-
-
-## Son tasarım revizyonu
-
-Adayın görsel ve yazılı yönlendirmesiyle tasarım yenilendi: lacivert/mavi/teal palet, sağda açıkça etiketli statik dashboard mockup, telefon/mesaj/not akışı, çözüm kartları, üç adım ve form. Yeni dosyalar: src/components/icon.js, src/components/product-preview.js. Form ve API mantığı korundu. Yeni npm paketi yok. Revizyon lint/build başarılı. 1440px/390px görsel kontrol ve yatay taşma ölçümü başarılı; boş submit 4 hata ve isim odağı verdi. Yayın ve final Git teslimi sıradaki aşama. Tasarımın kabul edildiği varsayılmamalı; kullanıcıya sonucu göster.
+Son teslim 01.10.2026 15:10:36 İstanbul. Kullanıcı rutin uygulama/yayın kararlarını Codex'e bıraktı; açıklamalarla ilerle, gereksiz onay sorma. Alt ajan yok. .env.local ve .vercel-cli gizli ve Git/yayın dışında; içeriklerini yazdırma. Uygulama yerelde de Neon kullanıyor. Dağıtık rate limiting/idempotency yok; README'de açık. Normal sandbox terminali çalışmıyor; izinli require_escalated exec çalışıyor. Git commit kimliği mevcut yerel ayardan kullanılır.

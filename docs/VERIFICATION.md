@@ -36,3 +36,7 @@ Hata UI testi veritabanını kapatmadı; yalnızca test tarayıcısında gecikme
 ## Tekrar çalıştırma
 
 README kurulumunu izleyin. npm test ve npm run lint DB gerektirmez. npm run test:integration çalışan uygulama ve DB ister, kalıcı kurgusal kayıt bırakır. Canlı URL için TEST_BASE_URL ayarlanmalıdır. Her yeni çalıştırmanın sonucunu ayrı değerlendirin; eski test başarısı yeni değişiklik için otomatik kanıt değildir.
+
+## Son teslim hazırlığı kontrolü
+
+320px ve 768px ölçümlerde yatay taşma yok. Kontrast düzeltmesi sonrası 41 örnek sayfa metninin hesaplanan oranları kontrol edildi; 4.5 altında sonuç kalmadı. Statik panelin dekoratif içeriği bu kontrolde hariç tutuldu; gradient dahil tam otomatik erişilebilirlik denetimi yapılmadı. Repo push başarılı ancak anonim erişim 404; değerlendirici erişimi bekliyor. Canlı URL cihaz girişinden sonra doğrulanacak.

@@ -88,3 +88,13 @@ Aday gidişattan memnun olmadığını, kapsamın ve zamanın önceliklendirilme
 Kod Prettier ile okunabilir hâle getirildi (SVG için parser yok uyarısı alındı; SVG dosyası otomatik biçimlendirilmedi, kalan JS/CSS kontrolleri geçti). Next.js proje kökü açık tanımlandı; başlangıç ikonuna karşı Akış SVG ikonu eklendi; gereksiz X-Powered-By kaldırıldı, nosniff/referrer/permissions yanıt başlıkları eklendi. Node 22.x ve Frankfurt Vercel bölgesi tanımlandı. Son 16 test, ESLint ve production build başarılı.
 
 Vercel CLI başlangıçta profil klasöründe EXDEV verdi. Git ve yayın dışında tutulan .vercel-cli klasörüyle düzeltildi; mevcut oturum olmadığı saptandı, aday için cihaz giriş bağlantısı üretildi. Ücretli plan/abonelik açılmadı. Kimlik bilgileri çıktılara veya Git'e konulmadı.
+
+## Son okunabilirlik kontrolü
+
+Ayrıntılı R9 değerlendirme rehberi doğrudan siteden okundu. Ölçütler çalışan form, kalıcı kayıt, sunucu doğrulaması, hata yönetimi ve kanıta göre değerlendirildi; görsel süsleme ayrı puan olarak ele alınmadı. Başvurudaki yazılı senaryo/geçmiş proje cevaplarının repo belgeleriyle karıştırılmaması için adaya durum soruldu.
+
+320px ve 768px ekranlarda sayfa yatay taşmadı. Gerçek DOM renkleriyle yapılan sınırlı kontrast kontrolü küçük yardımcı yazılar, servis sıra numaraları, demo notu ve footer üzerinde 4.5 altı oranlar buldu (ör. 4.37, 2.36, 4.47, 4.01, 3.90). Bu metinlerin renkleri koyulaştırıldı. Bu bulgu gerçek kontrol sonucudur; tam WCAG uygunluk iddiası değildir.
+
+İlk commit 928e662f931ad0c89d55ffbc8533382ec1760fd6 GitHub main dalına başarıyla gönderildi. Göndermeden önce staged dosyalar bilinen DATABASE_URL ve şifre açısından tarandı; eşleşme yok. Uzak commit yerel commit ile eşleşti. Anonim repo erişimi 404; değerlendirici erişimi henüz doğrulanmış sayılmaz. Vercel cihaz girişi bekleniyor.
+
+Kontrast düzeltmesi sonrası 41 örnek DOM metninde 4.5 altı sonuç kalmadı. Canlı yayın için gerekli Vercel oturum girişi adaydan bekleniyor; GitHub erişimi ve kişisel başvuru cevapları da ayrıca soruldu.
