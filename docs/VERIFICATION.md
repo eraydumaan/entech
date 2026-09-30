@@ -13,7 +13,7 @@ Yalnızca kurgusal veri kullanıldı. Durumlar araç çıktıları ve gerçek g�
 | Başarı yalnızca kayıt sonrası  | Birim testte bekletilen Promise; gerçek API 201 + kayıt ID          | Geçti                |
 | Hata ve değer koruma           | Test tarayıcısında gecikmeli 503, alanlar aynı kaldı                | Geçti; simülasyon    |
 | Çift gönderim                  | İki submit olayında tek fetch                                       | Geçti; aynı tarayıcı |
-| Kalıcı kayıt                   | Neon ID 1/5/8/10/12 bağımsız bağlantı ve yeniden bağlantıyla okundu | Geçti                |
+| Kalıcı kayıt                   | Neon ID 1/5/8/10/12/14 bağımsız bağlantı ve yeniden bağlantıyla okundu | Geçti              |
 | Gerçek tarayıcı kaydı          | Enter ile form gönderildi, ID 3 ayrı DB sorgusuyla doğrulandı       | Geçti                |
 | Dinamik hizmet seçimi          | Kart seçimi forma aktarıldı; ilerleme %0 → %25 → %100 değişti       | Geçti                |
 | Etkileşimli konsept paneli     | Sekmeler metrik, tablo, durum, grafik ve bildirimleri birlikte değiştiriyor | Geçti          |
@@ -21,7 +21,7 @@ Yalnızca kurgusal veri kullanıldı. Durumlar araç çıktıları ve gerçek g�
 | Hatalı JSON/Content-Type/boyut | 400/415/413 birim testleri                                          | Geçti                |
 | Gizli değerler                 | .env.local ve CLI auth git check-ignore ile hariç                   | Geçti                |
 | Kod/derleme                    | 18 test, ESLint, production build                                   | Geçti                |
-| Canlı URL ve canlı kayıt       | entech-seven.vercel.app, HTTP 200, final Production kayıt ID 12     | Geçti                |
+| Canlı URL ve canlı kayıt       | entech-seven.vercel.app, HTTP 200, son Production kayıt ID 14       | Geçti                |
 | İncelenebilir commit           | DELIVERY.md ile eşleştirilecek                                      | Bekliyor             |
 
 ## Gerçek kayıtlar
@@ -33,6 +33,7 @@ Yalnızca kurgusal veri kullanıldı. Durumlar araç çıktıları ve gerçek g�
 - ID 8: 2026-09-30T17:57:17.794Z, canlı Production API üzerinden yazılıp bağımsız okunan kurgusal kayıt.
 - ID 10: 2026-09-30T18:01:51.845Z, açık `verify-full` ayarı sonrası uyarısız yerel entegrasyon kaydı.
 - ID 12: 2026-09-30T18:07:19.623Z, final Production API üzerinden uyarısız yazılıp bağımsız okunan kayıt.
+- ID 14: 2026-09-30T18:56:06.853Z, genel temizlik sonrası Production API üzerinden yazılıp bağımsız bağlantı ve yeniden bağlantıyla okunan kayıt.
 
 PostgreSQL identity dizileri geri alınan hatalı işlemlerde de ilerleyebilir. Bu nedenle ID aralıklarının kesintisiz olması beklenmez.
 
@@ -59,3 +60,5 @@ Son yerleşim kontrolünde dashboard küçük hero kolonu yerine 1440px viewport
 Production deployment `READY` durumunda ve https://entech-seven.vercel.app oturumsuz HTTP 200 döndü. Canlı sayfada Talepler düğmesi başlığı değiştirdi; üçüncü hizmet kartı formda `reporting` değerini ve %25 ilerlemeyi oluşturdu; tarayıcı hata listesi boştu. İlk log taramasındaki `pg` SSL gelecek sürüm uyarısından sonra bağlantı URL'si açıkça `sslmode=verify-full` olarak normalize edildi ve iki test eklendi. Yeniden yayınlanan deployment'ta canlı entegrasyon ID 12 geçti; son error log taraması temizdi.
 
 Genel temizlikten sonra 18/18 test, ESLint ve production build yeniden geçti. Kullanılmayan create-next-app dosyalarına kalan referans, boş dosya, TODO/FIXME veya debugger bulunmadı. Mobil tarayıcı ölçümünde viewport ve belge genişliği 375px olarak eşleşti. Raporlar sekmesi başlık ve ilk tablo satırını değiştirdi; boş gönderim dört alan hatası üretti ve odağı `request-name` alanına taşıdı. Tarayıcı hata listesi boştu.
+
+Temizlik commit'i Vercel Production'a yayımlandı. Canlı kök adres oturumsuz HTTP 200; `nosniff`, referrer ve permissions güvenlik başlıkları bulundu. Geçersiz dört alanlı istek 422 döndü. Entegrasyon testi ID 14'ü oluşturdu; bağımsız okuma, yeniden bağlantı okuması, geçersiz isteğin ek kayıt oluşturmaması ve DB isim kısıtı geçti. Son 15 dakikalık Production error log sorgusu sonuç döndürmedi.

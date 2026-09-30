@@ -3,7 +3,7 @@
 - Ürün: Akış — kurgusal teknik servis otomasyonu hizmeti.
 - Kaynak kod: https://github.com/eraydumaan/entech
 - Canlı URL: https://entech-seven.vercel.app
-- Teslim commit kimliği: son doğrulama commitinden sonra `git rev-parse HEAD` çıktısı teslim alanına girilecek.
+- Teslim commit kimliği: final push ve yayın sonrası `git rev-parse HEAD` çıktısı teslim alanına eksiksiz girilecek.
 - Son teslim: 01.10.2026 15:10:36 Europe/Istanbul.
 
 ## Teslim ekranına girilecekler
@@ -17,4 +17,4 @@ Sunucunun kabul ettiği son teslimdeki commit değerlendirilir. Sonraki push tes
 
 ## Erişim durumu
 
-Canlı URL oturumsuz HTTP 200 döndü. Final Production API kurgusal kaydı Neon'a yazdı ve ID 12 bağımsız bağlantı/yeniden bağlantıyla okundu. Kod GitHub main dalına gönderildi; anonim erişim 404 döndüğü için değerlendiriciye repo daveti verilmeli veya depo public yapılmalı.
+Canlı URL oturumsuz HTTP 200 döndü. Son Production API kurgusal kaydı Neon'a yazdı ve ID 14 bağımsız bağlantı/yeniden bağlantıyla okundu. Kod GitHub main dalına gönderildi; depo şu anda özel olduğu için değerlendiriciye repo daveti verilmeli veya adayın açık onayıyla depo public yapılmalı.
