@@ -1,0 +1,28 @@
+{
+  "name": "enteksis",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test": "node --test",
+    "db:setup": "node --env-file-if-exists=.env.local scripts/setup-db.mjs",
+    "test:integration": "node --env-file-if-exists=.env.local scripts/verify-db.mjs"
+  },
+  "dependencies": {
+    "next": "16.3.7",
+    "pg": "^8.23.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^9",
+    "eslint-config-next": "16.3.7"
+  },
+  "engines": {
+    "node": "22.x"
+  }
+}
