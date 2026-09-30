@@ -1,9 +1,11 @@
 import RequestForm from "@/components/request-form";
 import ProductPreview from "@/components/product-preview";
 import Icon from "@/components/icon";
+import ServiceCards from "@/components/service-cards";
 
 const services = [
   {
+    value: "service-intake",
     icon: "inbox",
     tone: "blue",
     number: "01",
@@ -13,6 +15,7 @@ const services = [
     benefit: "Dağınık notlardan düzenli kayıtlara",
   },
   {
+    value: "task-tracking",
     icon: "users",
     tone: "teal",
     number: "02",
@@ -22,6 +25,7 @@ const services = [
     benefit: "Net sorumluluklar, daha kolay takip",
   },
   {
+    value: "reporting",
     icon: "chart",
     tone: "violet",
     number: "03",
@@ -90,7 +94,7 @@ export default function Home() {
                 </span>
               </div>
               <p className="hero-demo">
-                Kurgusal hizmet · Çalışan test talep formu
+                Talep formu, başarılı gönderimde PostgreSQL’e kalıcı kayıt oluşturur.
               </p>
             </div>
             <ProductPreview />
@@ -158,25 +162,7 @@ export default function Home() {
             <h2 id="services-title">Daha düzenli bir servis günü.</h2>
             <p>Ekibinizin günlük işlerine uyarlanan üç otomasyon çözümü.</p>
           </div>
-          <div className="service-grid">
-            {services.map((service) => (
-              <article className="service-card" key={service.number}>
-                <div className="service-card-top">
-                  <span className={`service-icon ${service.tone}`}>
-                    <Icon name={service.icon} size={25} />
-                  </span>
-                  <span className="service-number">{service.number}</span>
-                </div>
-                <p className="service-subtitle">{service.subtitle}</p>
-                <h3>{service.title}</h3>
-                <p className="service-description">{service.text}</p>
-                <div className="service-benefit">
-                  <Icon name="check" size={16} />
-                  <span>{service.benefit}</span>
-                </div>
-              </article>
-            ))}
-          </div>
+          <ServiceCards services={services} />
         </section>
         <section
           id="nasil-calisir"
@@ -247,11 +233,11 @@ export default function Home() {
               <aside className="demo-box">
                 <Icon name="shield" size={23} />
                 <div>
-                  <strong>Şeffaf bir değerlendirme demosu.</strong>
+                  <strong>Güvenli test verisi kullanın.</strong>
                   <p>
-                    Yalnızca kurgusal bilgi kullanın. Formunuz kaydedilir;
-                    gerçek hizmet, otomasyon veya e-posta gönderimi yapılmaz.
-                    Ürün paneli bir konsept görselidir.
+                    Yalnızca kurgusal bilgi kullanın. Sunucu doğrulamasını geçen
+                    form PostgreSQL’e kaydedilir ve size gerçek kayıt numarası
+                    döndürür. Ürün panelindeki içerikler konsept verileridir.
                   </p>
                 </div>
               </aside>
@@ -281,7 +267,7 @@ export default function Home() {
           <p>İşiniz ilerlesin. Takibi Akış’ta kalsın.</p>
         </div>
         <span>
-          Kurgusal ürün · Değerlendirme projesi
+          Kurgusal hizmet · Çalışan talep kayıt akışı
           <br />© 2026 Akış
         </span>
       </footer>

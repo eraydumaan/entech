@@ -5,11 +5,11 @@
 - Next.js 16.3.7, React 19.2.8, JavaScript/CSS landing page.
 - İstemci ve sunucuda dört alan doğrulaması; isim 2–50.
 - POST /api/requests, parametreli pg sorgusu, server-only DB modülü.
-- Neon PostgreSQL tablosu; gerçek kayıt ID 1 ve tarayıcı kaydı ID 3 bağımsız DB sorgularıyla doğrulandı.
+- Neon PostgreSQL tablosu; gerçek kayıtlar ID 1/3 ve son bağımsız entegrasyon kaydı ID 5 doğrulandı.
 - Gönderiliyor/başarı/hata; hata halinde değer koruma; eşzamanlı ikinci submit kilidi.
-- Statik ürün konsepti açık etiketli; gerçek otomasyon/dashboard iddiası yok.
+- Etkileşimli ürün konsepti açık etiketli; hizmet kartı → form seçimi, form ilerlemesi ve blur doğrulaması çalışıyor.
 - 16 test, lint ve production build geçti.
-- Masaüstü 1440px, mobil 390px/320px, tablet 768px yatay taşma kontrolleri geçti.
+- Masaüstü 1440px, mobil 390px/320px, tablet 768px kontrolleri geçti; son tarayıcı hata listesi boş.
 - Son sınırlı DOM kontrast kontrolünde 41 metin, başarısız eşik 0. Tam WCAG denetimi değildir.
 - README, AI_LOG, docs/DECISIONS, docs/VERIFICATION, DELIVERY dosyaları mevcut.
 - İlk commit 928e662f931ad0c89d55ffbc8533382ec1760fd6 GitHub main dalına gönderildi. Son değişiklikler ayrıca commit edilecek.

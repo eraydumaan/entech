@@ -7,14 +7,16 @@ Yalnızca kurgusal veri kullanıldı. Durumlar araç çıktıları ve gerçek g�
 | Hizmetin kime/niçin sunulduğu  | Teknik servis hedefi, üç hizmet, örnek konsept, çalışan talep formu | Yerelde tamam        |
 | Mobil/masaüstü                 | 1440px ve 390px ekran görüntüleri; documentWidth viewport ile aynı  | Geçti                |
 | Dört form alanı                | İsim, e-posta, hizmet seçimi, açıklama                              | Geçti                |
-| İstemci doğrulaması            | Boş submit dört hata ve ilk alana odak verdi                        | Geçti                |
+| İstemci doğrulaması            | Boş submit; ayrıca tek karakterli isim blur sırasında reddedildi    | Geçti                |
 | Sunucu doğrulaması             | 422 ve alan hataları; 51 karakter kayıt oluşturmadı                 | Geçti                |
 | Gönderiliyor                   | Gecikmeli fetch simülasyonunda aria-busy ve disabled buton          | Geçti                |
 | Başarı yalnızca kayıt sonrası  | Birim testte bekletilen Promise; gerçek API 201 + kayıt ID          | Geçti                |
 | Hata ve değer koruma           | Test tarayıcısında gecikmeli 503, alanlar aynı kaldı                | Geçti; simülasyon    |
 | Çift gönderim                  | İki submit olayında tek fetch                                       | Geçti; aynı tarayıcı |
-| Kalıcı kayıt                   | Neon ID 1 bağımsız bağlantı ve yeniden bağlantıyla okundu           | Geçti                |
+| Kalıcı kayıt                   | Neon ID 1 ve ID 5 bağımsız bağlantı/yeniden bağlantıyla okundu      | Geçti                |
 | Gerçek tarayıcı kaydı          | Enter ile form gönderildi, ID 3 ayrı DB sorgusuyla doğrulandı       | Geçti                |
+| Dinamik hizmet seçimi          | Kart seçimi forma aktarıldı; ilerleme %0 → %25 → %100 değişti       | Geçti                |
+| Etkileşimli konsept paneli     | Talepler düğmesi başlık/açıklamayı değiştirdi; örnek etiketi görünür | Geçti               |
 | DB kısıtı                      | Doğrudan 51 karakter INSERT, SQLSTATE 23514; rollback               | Geçti                |
 | Hatalı JSON/Content-Type/boyut | 400/415/413 birim testleri                                          | Geçti                |
 | Gizli değerler                 | .env.local ve CLI auth git check-ignore ile hariç                   | Geçti                |
@@ -26,6 +28,8 @@ Yalnızca kurgusal veri kullanıldı. Durumlar araç çıktıları ve gerçek g�
 
 - ID 1: 2026-09-30T12:38:46.109Z, kurgusal entegrasyon kaydı.
 - ID 3: browser-test@example.com ile tarayıcıdan oluşturulan kurgusal görev takibi talebi.
+- ID 4: deniz.frontend.test@example.com ile yenilenen arayüzden oluşturulan kurgusal talep.
+- ID 5: 2026-09-30T17:42:16.031Z, bağımsız bağlantı ve yeniden bağlantıyla okunan kurgusal entegrasyon kaydı.
 
 PostgreSQL identity dizileri geri alınan hatalı işlemlerde de ilerleyebilir. Bu nedenle ID aralıklarının kesintisiz olması beklenmez.
 
@@ -40,3 +44,5 @@ README kurulumunu izleyin. npm test ve npm run lint DB gerektirmez. npm run test
 ## Son teslim hazırlığı kontrolü
 
 320px ve 768px ölçümlerde yatay taşma yok. Kontrast düzeltmesi sonrası 41 örnek sayfa metninin hesaplanan oranları kontrol edildi; 4.5 altında sonuç kalmadı. Statik panelin dekoratif içeriği bu kontrolde hariç tutuldu; gradient dahil tam otomatik erişilebilirlik denetimi yapılmadı. Repo push başarılı ancak anonim erişim 404; değerlendirici erişimi bekliyor. Canlı URL cihaz girişinden sonra doğrulanacak.
+
+Etkileşim revizyonu sonrası 1440×1000 ve 390×844 görüntüler yeniden incelendi. Panel düğmeleri erişilebilirlik ağacında görünüyor, mobil sayfa tek sütunda ve tarayıcı hata listesi boş. Bu gözlemsel kontrol tam ekran okuyucu veya otomatik WCAG denetimi değildir.

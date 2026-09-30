@@ -98,3 +98,11 @@ Ayrıntılı R9 değerlendirme rehberi doğrudan siteden okundu. Ölçütler ça
 İlk commit 928e662f931ad0c89d55ffbc8533382ec1760fd6 GitHub main dalına başarıyla gönderildi. Göndermeden önce staged dosyalar bilinen DATABASE_URL ve şifre açısından tarandı; eşleşme yok. Uzak commit yerel commit ile eşleşti. Anonim repo erişimi 404; değerlendirici erişimi henüz doğrulanmış sayılmaz. Vercel cihaz girişi bekleniyor.
 
 Kontrast düzeltmesi sonrası 41 örnek DOM metninde 4.5 altı sonuç kalmadı. Canlı yayın için gerekli Vercel oturum girişi adaydan bekleniyor; GitHub erişimi ve kişisel başvuru cevapları da ayrıca soruldu.
+
+## Etkileşim ve form geri bildirimi revizyonu
+
+Aday arayüzün fazla statik göründüğünü ve sürenin daraldığını belirtti. Codex kapsamı gerçek ürün sözleşmesini bozmadan üç anlamlı etkileşimle sınırladı: konsept panelinin Genel bakış/Talepler/İş planı düğmeleri görünür başlık ve açıklamayı değiştiriyor; hizmet kartlarındaki düğmeler seçimi talep formuna aktarıyor; form geçerli alanlara göre yüzde ilerleme gösteriyor ve alan terk edildiğinde ortak doğrulama modülüyle hata üretiyor. Sahte canlı veri, rastgele sayaç veya çalışmayan kontrol eklenmedi.
+
+Ürün panelinin önceki `aria-hidden` kullanımı yeni düğmeleri erişilebilirlik ağacından da gizlediği için tarayıcı snapshot kontrolünde fark edildi ve kaldırıldı. Panel örnek verileri hâlâ açıkça “etkileşimli ürün konsepti” olarak etiketleniyor. Hizmet seçimi sonrası form değeri ve ilerleme %25 olarak, dört geçerli alan sonrası %100 olarak doğrulandı. Tek karakterli isim blur olayında “İsim 2–50 karakter olmalıdır” hatasını gösterdi.
+
+Kurgusal tarayıcı gönderimi Neon'dan ID 4 aldı; başarı yanıtından sonra alanlar temizlendi. Tekrarlanabilir entegrasyon testi ID 5'i API ile yazdı, bağımsız bağlantı ve yeniden bağlantıyla okudu, geçersiz isteğin ek kayıt oluşturmadığını ve DB isim kısıtını doğruladı. Sonuçlar: 16/16 birim testi, ESLint ve production build başarılı; 1440×1000 masaüstü ile 390×844 mobil görüntüler incelendi; tarayıcı hata listesi boştu.

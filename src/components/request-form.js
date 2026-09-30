@@ -8,12 +8,14 @@ import {
 } from "@/lib/request-validation.mjs";
 
 const INITIAL_VALUES = { name: "", email: "", service: "", description: "" };
+const REQUIRED_FIELDS = ["name", "email", "service", "description"];
 
 export default function RequestForm() {
   const [values, setValues] = useState(INITIAL_VALUES);
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState("idle");
   const [message, setMessage] = useState("");
+  const [selectionNote, setSelectionNote] = useState("");
   const submitting = useRef(false);
   const formRef = useRef(null);
 
@@ -22,14 +24,42 @@ export default function RequestForm() {
     const first = Object.keys(INITIAL_VALUES).find((field) => errors[field]);
     if (first) formRef.current?.elements.namedItem(first)?.focus();
   }, [errors, status]);
+
+  useEffect(() => {
+    function selectService(event) {
+      const selected = SERVICES.find(
+        (service) => service.value === event.detail?.value,
+      );
+      if (!selected) return;
+      setValues((previous) => ({ ...previous, service: selected.value }));
+      setErrors((previous) => ({ ...previous, service: undefined }));
+      setSelectionNote(`${selected.label} seçildi.`);
+      setStatus("idle");
+      setMessage("");
+    }
+
+    window.addEventListener("akis:service-selected", selectService);
+    return () => window.removeEventListener("akis:service-selected", selectService);
+  }, []);
+
   function change(event) {
     const { name, value } = event.target;
     setValues((previous) => ({ ...previous, [name]: value }));
     setErrors((previous) => ({ ...previous, [name]: undefined }));
+    if (name === "service") setSelectionNote("");
     if (status !== "idle") {
       setStatus("idle");
       setMessage("");
     }
+  }
+
+  function blur(event) {
+    const field = event.target.name;
+    const validated = validateRequest(values);
+    setErrors((previous) => ({
+      ...previous,
+      [field]: validated.success ? undefined : validated.errors[field],
+    }));
   }
 
   async function submit(event) {
@@ -88,6 +118,13 @@ export default function RequestForm() {
   }
 
   const pending = status === "submitting";
+  const currentValidation = validateRequest(values);
+  const completedFields = REQUIRED_FIELDS.filter(
+    (field) =>
+      values[field].trim().length > 0 &&
+      (currentValidation.success || !currentValidation.errors[field]),
+  ).length;
+  const completion = Math.round((completedFields / REQUIRED_FIELDS.length) * 100);
   function accessibility(field, hint) {
     return {
       "aria-invalid": Boolean(errors[field]),
@@ -106,6 +143,22 @@ export default function RequestForm() {
       aria-labelledby="request-title"
       aria-busy={pending}
     >
+      <div className="form-progress-wrap">
+        <div className="form-progress-copy">
+          <span>Form ilerlemesi</span>
+          <strong>{completion}%</strong>
+        </div>
+        <div
+          className="form-progress"
+          role="progressbar"
+          aria-label="Doldurulan geçerli alan oranı"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow={completion}
+        >
+          <span style={{ width: `${completion}%` }} />
+        </div>
+      </div>
       <fieldset disabled={pending}>
         <legend className="sr-only">
           Talep bilgileri — tüm alanlar zorunludur
@@ -120,6 +173,7 @@ export default function RequestForm() {
               required
               value={values.name}
               onChange={change}
+              onBlur={blur}
               {...accessibility("name", "name-hint")}
             />
             <span className="hint" id="name-hint">
@@ -141,6 +195,7 @@ export default function RequestForm() {
               required
               value={values.email}
               onChange={change}
+              onBlur={blur}
               {...accessibility("email", "email-hint")}
             />
             <span className="hint" id="email-hint">
@@ -161,6 +216,7 @@ export default function RequestForm() {
             required
             value={values.service}
             onChange={change}
+            onBlur={blur}
             {...accessibility("service")}
           >
             <option value="">Bir hizmet seçin</option>
@@ -175,6 +231,9 @@ export default function RequestForm() {
               {errors.service}
             </p>
           )}
+          {selectionNote && !errors.service && (
+            <p className="field-success">{selectionNote}</p>
+          )}
         </div>
         <div className="field">
           <label htmlFor="request-description">
@@ -187,6 +246,7 @@ export default function RequestForm() {
             required
             value={values.description}
             onChange={change}
+            onBlur={blur}
             {...accessibility("description", "description-hint")}
           />
           <span className="hint" id="description-hint">

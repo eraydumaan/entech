@@ -1,13 +1,59 @@
+"use client";
+
+import { useState } from "react";
 import Icon from "./icon";
 
+const PREVIEW_VIEWS = {
+  overview: {
+    copy: [
+      "HER ŞEY YOLUNDA",
+      "İşinize genel bir bakış",
+      "Ekibinizin bugünkü iş akışı, tek ekranda.",
+    ],
+    metrics: [
+      ["Açık talepler", "12", "+2 yeni"],
+      ["Devam eden", "5", "Planlandı"],
+      ["Tamamlanan", "8", "Bugün"],
+    ],
+  },
+  requests: {
+    copy: [
+      "TALEP MERKEZİ",
+      "Öncelikler artık net",
+      "Yeni ve bekleyen talepleri aynı yerden izleyin.",
+    ],
+    metrics: [
+      ["Yeni talepler", "7", "Son 24 saat"],
+      ["Yanıt bekleyen", "3", "Takipte"],
+      ["Öncelikli", "2", "Bugün"],
+    ],
+  },
+  schedule: {
+    copy: [
+      "HAFTALIK PLAN",
+      "İş yükü dengede",
+      "Sorumluları ve sıradaki adımları birlikte görün.",
+    ],
+    metrics: [
+      ["Planlanan", "8", "Bu hafta"],
+      ["Devam eden", "3", "Ekipte"],
+      ["Tamamlanan", "5", "Zamanında"],
+    ],
+  },
+};
+
 export default function ProductPreview() {
+  const [activeView, setActiveView] = useState("overview");
+  const view = PREVIEW_VIEWS[activeView];
+  const [kicker, title, description] = view.copy;
+
   return (
     <figure
       className="product-preview"
-      aria-label="Akış ürün konsepti: örnek talepler, görev durumları ve iş özeti gösteren statik panel. Canlı uygulama değildir."
+      aria-label="Akış ürün konsepti: sekmelerle değişen örnek talepler, görev durumları ve iş özeti."
     >
       <div className="preview-glow" aria-hidden="true" />
-      <div className="dashboard" aria-hidden="true">
+      <div className="dashboard">
         <div className="dashboard-top">
           <span className="mini-brand">
             <span className="brand-mark">a</span> akış
@@ -19,17 +65,32 @@ export default function ProductPreview() {
           </span>
         </div>
         <div className="dashboard-body">
-          <div className="dashboard-sidebar">
+          <div className="dashboard-sidebar" aria-label="Ürün önizlemesi bölümleri">
             <span className="sidebar-label">ÇALIŞMA ALANI</span>
-            <span className="sidebar-item selected">
+            <button
+              type="button"
+              className={`sidebar-item ${activeView === "overview" ? "selected" : ""}`}
+              aria-pressed={activeView === "overview"}
+              onClick={() => setActiveView("overview")}
+            >
               <Icon name="grid" size={15} /> Genel bakış
-            </span>
-            <span className="sidebar-item">
+            </button>
+            <button
+              type="button"
+              className={`sidebar-item ${activeView === "requests" ? "selected" : ""}`}
+              aria-pressed={activeView === "requests"}
+              onClick={() => setActiveView("requests")}
+            >
               <Icon name="inbox" size={15} /> Talepler
-            </span>
-            <span className="sidebar-item">
+            </button>
+            <button
+              type="button"
+              className={`sidebar-item ${activeView === "schedule" ? "selected" : ""}`}
+              aria-pressed={activeView === "schedule"}
+              onClick={() => setActiveView("schedule")}
+            >
               <Icon name="calendar" size={15} /> İş planı
-            </span>
+            </button>
             <span className="sidebar-item">
               <Icon name="users" size={15} /> Ekibim
             </span>
@@ -43,9 +104,9 @@ export default function ProductPreview() {
           <div className="dashboard-content">
             <div className="dashboard-heading">
               <div>
-                <span className="dashboard-kicker">HER ŞEY YOLUNDA</span>
-                <h3>İşinize genel bir bakış</h3>
-                <p>Ekibinizin bugünkü iş akışı, tek ekranda.</p>
+                <span className="dashboard-kicker">{kicker}</span>
+                <h3>{title}</h3>
+                <p>{description}</p>
               </div>
               <span className="mock-date">
                 <Icon name="calendar" size={12} /> Bugün
@@ -56,27 +117,27 @@ export default function ProductPreview() {
                 <span className="metric-icon blue">
                   <Icon name="inbox" size={15} />
                 </span>
-                <span>Açık talepler</span>
+                <span>{view.metrics[0][0]}</span>
                 <strong>
-                  12<small>+2 yeni</small>
+                  {view.metrics[0][1]}<small>{view.metrics[0][2]}</small>
                 </strong>
               </div>
               <div>
                 <span className="metric-icon amber">
                   <Icon name="clock" size={15} />
                 </span>
-                <span>Devam eden</span>
+                <span>{view.metrics[1][0]}</span>
                 <strong>
-                  5<small>Planlandı</small>
+                  {view.metrics[1][1]}<small>{view.metrics[1][2]}</small>
                 </strong>
               </div>
               <div>
                 <span className="metric-icon teal">
                   <Icon name="check" size={15} />
                 </span>
-                <span>Tamamlanan</span>
+                <span>{view.metrics[2][0]}</span>
                 <strong>
-                  8<small>Bugün</small>
+                  {view.metrics[2][1]}<small>{view.metrics[2][2]}</small>
                 </strong>
               </div>
             </div>
@@ -174,8 +235,7 @@ export default function ProductPreview() {
         </span>
       </div>
       <figcaption>
-        <span className="concept-dot" /> Ürün konsepti · Örnek veriler, statik
-        önizleme
+        <span className="concept-dot" /> Etkileşimli ürün konsepti · Kurgusal örnek veriler
       </figcaption>
     </figure>
   );

@@ -325,6 +325,11 @@ h1 > span {
   padding: 9px 7px;
   color: #6d7b8e;
   border-radius: 5px;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
 }
 .sidebar-item.selected {
   background: #edf4ff;
@@ -770,6 +775,20 @@ h2 {
   flex-direction: column;
   background: #fff;
   box-shadow: 0 5px 18px #253d6004;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+.service-card:hover,
+.service-card:focus-within {
+  transform: translateY(-3px);
+  border-color: #b9d0ec;
+  box-shadow: 0 16px 34px #253d6010;
+}
+.service-card.selected {
+  border-color: #2c78d6;
+  box-shadow: 0 0 0 3px #2c78d612;
 }
 .service-card-top {
   display: flex;
@@ -821,6 +840,34 @@ h2 {
 }
 .service-benefit svg {
   color: var(--teal);
+}
+.service-action {
+  margin-top: 18px;
+  min-height: 42px;
+  border: 1px solid #cad8e9;
+  border-radius: 8px;
+  background: #f8fbff;
+  color: #185fae;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+}
+.service-action:hover {
+  background: #eef5ff;
+  border-color: #8fb3df;
+}
+.service-action[aria-pressed="true"] {
+  background: #eaf5f0;
+  color: #126d58;
+  border-color: #a9d5c5;
+}
+.service-selection-status {
+  min-height: 20px;
+  margin: 17px 0 0;
+  text-align: center;
+  color: #586b83;
+  font-size: 12px;
 }
 .workflow-section {
   padding-block: 40px 86px;
@@ -969,6 +1016,33 @@ h2 {
   color: #586b83;
   margin: 20px 0 17px;
 }
+.form-progress-wrap {
+  margin: 0 0 19px;
+}
+.form-progress-copy {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 7px;
+  color: #586b83;
+  font-size: 11px;
+}
+.form-progress-copy strong {
+  color: #185fae;
+}
+.form-progress {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e8eef6;
+}
+.form-progress > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #2673cf, #2b9b7d);
+  transition: width 180ms ease;
+}
 fieldset {
   border: 0;
   padding: 0;
@@ -1021,6 +1095,11 @@ textarea[aria-invalid="true"] {
   font-size: 12px;
   color: #a1262c;
   margin: 0;
+}
+.field-success {
+  margin: 0;
+  color: #166044;
+  font-size: 12px;
 }
 form .button {
   width: 100%;

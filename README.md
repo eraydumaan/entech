@@ -82,7 +82,7 @@ Vercel projesinde Node 22.x ve `DATABASE_URL` Production ortam değişkeni kulla
 
 ## Kullanılabilirlik
 
-Mobilde tek sütun, 16px form girişleri, etiketli alanlar, görünür klavye odağı, ana içeriğe geç bağlantısı, alan bazlı hata ilişkileri ve canlı durum mesajları vardır. İlk hatalı alana odak taşınır. Kullanıcının hareket azaltma tercihi gözetilir. Konsept paneli ekran okuyucuya statik figür olarak açıklanır; dekoratif içeriği gezinmeye eklenmez.
+Mobilde tek sütun, 16px form girişleri, etiketli alanlar, görünür klavye odağı, ana içeriğe geç bağlantısı, alan bazlı hata ilişkileri ve canlı durum mesajları vardır. İlk hatalı alana odak taşınır. Alan terk edildiğinde doğrulama ve geçerli alanlara göre ilerleme çubuğu geri bildirim verir. Hizmet kartı seçimi form alanına aktarılır. Kullanıcının hareket azaltma tercihi gözetilir. Konsept panelinin üç düğmesi görünür içeriği değiştirir; örnek veriler gerçek operasyon verisi gibi sunulmaz.
 
 ## Bilinen sınırlar
 
