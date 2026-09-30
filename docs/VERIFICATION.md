@@ -13,7 +13,7 @@ Yalnızca kurgusal veri kullanıldı. Durumlar araç çıktıları ve gerçek g�
 | Başarı yalnızca kayıt sonrası  | Birim testte bekletilen Promise; gerçek API 201 + kayıt ID          | Geçti                |
 | Hata ve değer koruma           | Test tarayıcısında gecikmeli 503, alanlar aynı kaldı                | Geçti; simülasyon    |
 | Çift gönderim                  | İki submit olayında tek fetch                                       | Geçti; aynı tarayıcı |
-| Kalıcı kayıt                   | Neon ID 1/5/8/10 bağımsız bağlantı/yeniden bağlantıyla okundu       | Geçti                |
+| Kalıcı kayıt                   | Neon ID 1/5/8/10/12 bağımsız bağlantı ve yeniden bağlantıyla okundu | Geçti                |
 | Gerçek tarayıcı kaydı          | Enter ile form gönderildi, ID 3 ayrı DB sorgusuyla doğrulandı       | Geçti                |
 | Dinamik hizmet seçimi          | Kart seçimi forma aktarıldı; ilerleme %0 → %25 → %100 değişti       | Geçti                |
 | Etkileşimli konsept paneli     | Talepler düğmesi başlık/açıklamayı değiştirdi; örnek etiketi görünür | Geçti               |
@@ -21,7 +21,7 @@ Yalnızca kurgusal veri kullanıldı. Durumlar araç çıktıları ve gerçek g�
 | Hatalı JSON/Content-Type/boyut | 400/415/413 birim testleri                                          | Geçti                |
 | Gizli değerler                 | .env.local ve CLI auth git check-ignore ile hariç                   | Geçti                |
 | Kod/derleme                    | 18 test, ESLint, production build                                   | Geçti                |
-| Canlı URL ve canlı kayıt       | entech-seven.vercel.app, HTTP 200, Production kayıt ID 8            | Geçti                |
+| Canlı URL ve canlı kayıt       | entech-seven.vercel.app, HTTP 200, final Production kayıt ID 12     | Geçti                |
 | İncelenebilir commit           | DELIVERY.md ile eşleştirilecek                                      | Bekliyor             |
 
 ## Gerçek kayıtlar
@@ -32,6 +32,7 @@ Yalnızca kurgusal veri kullanıldı. Durumlar araç çıktıları ve gerçek g�
 - ID 5: 2026-09-30T17:42:16.031Z, bağımsız bağlantı ve yeniden bağlantıyla okunan kurgusal entegrasyon kaydı.
 - ID 8: 2026-09-30T17:57:17.794Z, canlı Production API üzerinden yazılıp bağımsız okunan kurgusal kayıt.
 - ID 10: 2026-09-30T18:01:51.845Z, açık `verify-full` ayarı sonrası uyarısız yerel entegrasyon kaydı.
+- ID 12: 2026-09-30T18:07:19.623Z, final Production API üzerinden uyarısız yazılıp bağımsız okunan kayıt.
 
 PostgreSQL identity dizileri geri alınan hatalı işlemlerde de ilerleyebilir. Bu nedenle ID aralıklarının kesintisiz olması beklenmez.
 
@@ -49,4 +50,4 @@ README kurulumunu izleyin. npm test ve npm run lint DB gerektirmez. npm run test
 
 Etkileşim revizyonu sonrası 1440×1000 ve 390×844 görüntüler yeniden incelendi. Panel düğmeleri erişilebilirlik ağacında görünüyor, mobil sayfa tek sütunda ve tarayıcı hata listesi boş. Bu gözlemsel kontrol tam ekran okuyucu veya otomatik WCAG denetimi değildir.
 
-Production deployment `READY` durumunda ve https://entech-seven.vercel.app oturumsuz HTTP 200 döndü. Canlı sayfada Talepler düğmesi başlığı değiştirdi; üçüncü hizmet kartı formda `reporting` değerini ve %25 ilerlemeyi oluşturdu; tarayıcı hata listesi boştu. İlk log taramasındaki tek kayıt `pg` SSL gelecek sürüm uyarısıydı. Bağlantı URL'si uygulama içinde açıkça `sslmode=verify-full` olarak normalize edildi; test kapsamına iki vaka eklendi ve yeniden yayın/log kontrolü yapılacaktır.
+Production deployment `READY` durumunda ve https://entech-seven.vercel.app oturumsuz HTTP 200 döndü. Canlı sayfada Talepler düğmesi başlığı değiştirdi; üçüncü hizmet kartı formda `reporting` değerini ve %25 ilerlemeyi oluşturdu; tarayıcı hata listesi boştu. İlk log taramasındaki `pg` SSL gelecek sürüm uyarısından sonra bağlantı URL'si açıkça `sslmode=verify-full` olarak normalize edildi ve iki test eklendi. Yeniden yayınlanan deployment'ta canlı entegrasyon ID 12 geçti; son error log taraması temizdi.

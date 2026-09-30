@@ -5,7 +5,7 @@
 - Next.js 16.3.7, React 19.2.8, JavaScript/CSS landing page.
 - İstemci ve sunucuda dört alan doğrulaması; isim 2–50.
 - POST /api/requests, parametreli pg sorgusu, server-only DB modülü.
-- Neon PostgreSQL tablosu; yerel ve Production kayıtları, son olarak ID 8 ve ID 10 bağımsız bağlantıyla doğrulandı.
+- Neon PostgreSQL tablosu; yerel ve Production kayıtları, son olarak final canlı ID 12 bağımsız bağlantıyla doğrulandı.
 - Gönderiliyor/başarı/hata; hata halinde değer koruma; eşzamanlı ikinci submit kilidi.
 - Etkileşimli ürün konsepti açık etiketli; hizmet kartı → form seçimi, form ilerlemesi ve blur doğrulaması çalışıyor.
 - 18 test, lint ve production build geçti.
@@ -22,7 +22,6 @@
 
 ## Son teslim öncesi
 
-- SSL uyarısı düzeltmesini Production'a yeniden yayınla ve error log taramasını tekrarla.
 - Final commit/push ve kaynak/yayın eşleşmesini doğrula.
 - Kullanıcıya canlı URL, repo ve tam commit SHA ver. Değerlendirme sitesine teslim edilmediyse edildiğini söyleme.
 
