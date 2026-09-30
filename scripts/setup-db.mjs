@@ -1,8 +1,9 @@
 import { readFile } from "node:fs/promises";
 import pg from "pg";
+import { normalizeDatabaseUrl } from "../src/lib/database-url.mjs";
 
 const client = new pg.Client({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: normalizeDatabaseUrl(process.env.DATABASE_URL),
   connectionTimeoutMillis: 10000,
   statement_timeout: 15000,
 });

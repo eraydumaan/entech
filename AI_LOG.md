@@ -106,3 +106,11 @@ Aday arayüzün fazla statik göründüğünü ve sürenin daraldığını belir
 Ürün panelinin önceki `aria-hidden` kullanımı yeni düğmeleri erişilebilirlik ağacından da gizlediği için tarayıcı snapshot kontrolünde fark edildi ve kaldırıldı. Panel örnek verileri hâlâ açıkça “etkileşimli ürün konsepti” olarak etiketleniyor. Hizmet seçimi sonrası form değeri ve ilerleme %25 olarak, dört geçerli alan sonrası %100 olarak doğrulandı. Tek karakterli isim blur olayında “İsim 2–50 karakter olmalıdır” hatasını gösterdi.
 
 Kurgusal tarayıcı gönderimi Neon'dan ID 4 aldı; başarı yanıtından sonra alanlar temizlendi. Tekrarlanabilir entegrasyon testi ID 5'i API ile yazdı, bağımsız bağlantı ve yeniden bağlantıyla okudu, geçersiz isteğin ek kayıt oluşturmadığını ve DB isim kısıtını doğruladı. Sonuçlar: 16/16 birim testi, ESLint ve production build başarılı; 1440×1000 masaüstü ile 390×844 mobil görüntüler incelendi; tarayıcı hata listesi boştu.
+
+## Production yayını ve canlı doğrulama
+
+Vercel cihaz girişi `eraydumaan` hesabıyla tamamlandı. `entech` projesi oluşturuldu; GitHub bağlantısı özel depo yetkisi nedeniyle otomatik kurulamadı, CLI yayınına engel olmadı. Vercel link işlemi `.env.local` dosyasını koruyup kısa ömürlü OIDC anahtarı ekledi. `DATABASE_URL` önce çevreleyen tırnaklarla aktarılmış göründü; Codex değeri çıktıya basmadan tırnakları kaldırdı ve Production secret değerini güncelledi. Ücretli hizmet açılmadı.
+
+Production deployment READY oldu ve https://entech-seven.vercel.app adresine alias verildi. Oturumsuz istek HTTP 200 aldı. Canlı tarayıcıda panel başlığı değişti, üçüncü hizmet kartı formu `reporting` seçimine getirdi, ilerleme %25 oldu ve tarayıcı hata listesi boş kaldı. Canlı entegrasyon testi API üzerinden ID 8'i yazdı; bağımsız DB bağlantısı ve yeniden bağlantıyla okudu; geçersiz istek ek kayıt üretmedi ve DB kısıtı çalıştı.
+
+İlk Vercel error log taramasında uygulama hatası yerine `pg` paketinin `sslmode=require` gelecek sürüm uyarısı görüldü. Bu yanlış alarmı ve gelecekteki belirsizliği kaldırmak için bağlantı modu uygulama, migration ve entegrasyon istemcilerinde açıkça `verify-full` değerine normalize edildi. İki birim testi eklendi. Sonuçlar 18/18 test, ESLint, production build ve uyarısız entegrasyon ID 10 olarak doğrulandı.

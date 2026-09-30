@@ -2,6 +2,7 @@
 import assert from "node:assert/strict";
 import { randomUUID } from "node:crypto";
 import pg from "pg";
+import { normalizeDatabaseUrl } from "../src/lib/database-url.mjs";
 
 const baseUrl = process.env.TEST_BASE_URL || "http://localhost:3000";
 const email = `test-${randomUUID()}@example.com`;
@@ -13,7 +14,7 @@ const data = {
     "Kurgusal değerlendirme testi: servis taleplerini takip etmek istiyorum.",
 };
 const dbOptions = {
-  connectionString: process.env.DATABASE_URL,
+  connectionString: normalizeDatabaseUrl(process.env.DATABASE_URL),
   connectionTimeoutMillis: 10000,
   statement_timeout: 10000,
 };

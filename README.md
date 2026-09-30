@@ -37,7 +37,7 @@ npm test
 npm run build
 ```
 
-`npm test` Node.js yerleşik test aracıyla DB gerektirmeyen 16 test çalıştırır. Hata testlerinde görünen “Talep kaydı tamamlanamadı” logları beklenen simülasyonlardır.
+`npm test` Node.js yerleşik test aracıyla DB gerektirmeyen 18 test çalıştırır. Hata testlerinde görünen “Talep kaydı tamamlanamadı” logları beklenen simülasyonlardır.
 
 Gerçek kayıt kontrolü için uygulama çalışırken başka bir terminalde:
 
@@ -80,6 +80,8 @@ Gönderimde alanlar/buton devre dışı kalır ve ikinci submit engellenir. Sade
 
 Vercel projesinde Node 22.x ve `DATABASE_URL` Production ortam değişkeni kullanılır. `vercel.json` sunucu bölgesini Neon'a yakın Frankfurt olarak belirler. Migration build sırasında otomatik çalıştırılmaz. `.env.local`, `.vercel` ve yerel CLI kimlik bilgileri Git/yayın yüklemesi dışında tutulur. Preview ortamında form test edilecekse ayrıca uygun bir test veritabanı ayarlanmalıdır.
 
+Canlı sürüm: https://entech-seven.vercel.app
+
 ## Kullanılabilirlik
 
 Mobilde tek sütun, 16px form girişleri, etiketli alanlar, görünür klavye odağı, ana içeriğe geç bağlantısı, alan bazlı hata ilişkileri ve canlı durum mesajları vardır. İlk hatalı alana odak taşınır. Alan terk edildiğinde doğrulama ve geçerli alanlara göre ilerleme çubuğu geri bildirim verir. Hizmet kartı seçimi form alanına aktarılır. Kullanıcının hareket azaltma tercihi gözetilir. Konsept panelinin üç düğmesi görünür içeriği değiştirir; örnek veriler gerçek operasyon verisi gibi sunulmaz.
@@ -90,7 +92,6 @@ Mobilde tek sütun, 16px form girişleri, etiketli alanlar, görünür klavye od
 - E-posta sahipliği/teslim edilebilirliği doğrulanmaz; e-posta gönderilmez.
 - Kimlik doğrulama, yönetim paneli ve talep listeleme API'si yok.
 - Tam WCAG denetimi ve yük testi yapılmadı. Ücretsiz plan kotaları ve uyuyan DB'nin açılış gecikmesi geçerlidir.
-- pg, `sslmode=require` davranışının gelecekteki ana sürümde değişeceğine dair uyarı verebilir. Mevcut bağlantıda TLS doğrulaması kapatılmamıştır.
 
 ## Hazır kaynaklar ve kişisel katkı
 
