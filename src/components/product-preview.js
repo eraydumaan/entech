@@ -135,7 +135,7 @@ export default function ProductPreview() {
       <div className="dashboard">
         <div className="dashboard-top">
           <span className="mini-brand">
-            <span className="brand-mark">a</span> akış
+            akış<span className="mini-brand-period">.</span>
             <span className="workspace-tag">YÖNETİM ÖNİZLEMESİ</span>
           </span>
           <span className="dashboard-tools">

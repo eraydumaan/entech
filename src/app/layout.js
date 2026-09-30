@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Akış | Teknik Servis İş Takibi",
-  icons: { icon: "/icon.svg" },
+  icons: { icon: "/akis-mark.png" },
   description:
     "Küçük teknik servis işletmeleri için servis talebi toplama, görev takibi ve raporlama otomasyonu.",
 };

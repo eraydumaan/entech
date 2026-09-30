@@ -95,9 +95,9 @@ Mobilde tek sütun, 16px form girişleri, etiketli alanlar, görünür klavye od
 
 ## Hazır kaynaklar ve kişisel katkı
 
-Başlangıç: [create-next-app](https://nextjs.org/docs/app/api-reference/cli/create-next-app). Next.js, React, ESLint ve Geist font ayarları bu iskeletten gelir. Hazır ücretli tema kullanılmadı. Panel ve küçük SVG ikonlar kodla üretildi; adayın referans görseli yalnızca tasarım yönü sağladı.
+Başlangıç: [create-next-app](https://nextjs.org/docs/app/api-reference/cli/create-next-app). Next.js, React, ESLint ve Geist font ayarları bu iskeletten gelir. Hazır ücretli tema kullanılmadı. Panel ve küçük arayüz ikonları kodla üretildi. Ana marka işareti adayın sağladığı stilize `A` referansından, şekli korunup tema mavisine ve şeffaf arka plana uyarlanarak hazırlandı. Dashboard referans görseli yalnızca yerleşim yönü sağladı.
 
-Aday: gereksinimleri aktardı, PostgreSQL/ücretsiz hizmet kararlarını verdi, ilk kurulumu ve Türkçe içerik değişikliklerini yaptı, gizli bağlantıyı yapılandırdı, isim sınırını 50'ye indirdi, görsel yönlendirmeyi sağladı. Codex: seçeneklerin açıklanması, sonraki kodlama, hata kontrolleri, testler, belgeler ve yayın hazırlığı. Ayrıntılı karar geçmişi AI_LOG.md içindedir. Başka takım üyesi veya alt ajan kullanılmadı.
+Aday gereksinimleri yorumladı; ürün kapsamını, teknoloji setini, ücretsiz servis sınırını ve alan kurallarını belirledi; ilk kurulumu hazırladı; dashboard, bildirimler ve mobil kullanım revizyonlarını yönlendirdi; gerçek admin kapsamını güvenlik gereksinimleriyle birlikte değerlendirdi. Codex pair programming desteğiyle uygulama, test otomasyonu, teknik belgeler ve yayın doğrulamalarına katkı verdi. Ayrıntılı karar geçmişi AI_LOG.md içindedir. Başka takım üyesi veya alt ajan kullanılmadı.
 
 ## Süre
 

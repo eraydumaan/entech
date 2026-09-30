@@ -47,7 +47,7 @@ export function validateRequest(input) {
     (length(data.email) > FIELD_LIMITS.email.max ||
       !/^[^\s@]+@[^\s@]+\.[^\s@]+$/u.test(data.email))
   ) {
-    errors.email = "Geçerli bir e-posta adresi girin (en fazla 254 karakter).";
+    errors.email = "Geçerli bir e-posta adresi girin.";
   }
 
   if (

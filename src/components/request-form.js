@@ -171,6 +171,8 @@ export default function RequestForm() {
               name="name"
               autoComplete="name"
               required
+              minLength={FIELD_LIMITS.name.min}
+              maxLength={FIELD_LIMITS.name.max}
               value={values.name}
               onChange={change}
               onBlur={blur}
@@ -193,6 +195,7 @@ export default function RequestForm() {
               name="email"
               autoComplete="email"
               required
+              maxLength={FIELD_LIMITS.email.max}
               value={values.email}
               onChange={change}
               onBlur={blur}
@@ -244,6 +247,8 @@ export default function RequestForm() {
             name="description"
             rows={5}
             required
+            minLength={FIELD_LIMITS.description.min}
+            maxLength={FIELD_LIMITS.description.max}
             value={values.description}
             onChange={change}
             onBlur={blur}

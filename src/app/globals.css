@@ -67,18 +67,15 @@ svg {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 31px;
+  width: 34px;
   height: 34px;
-  background: linear-gradient(145deg, #1b78e8, #1760ca);
-  border-radius: 9px 9px 9px 2px;
-  color: white;
-  font-size: 29px;
-  font-weight: 750;
-  line-height: 1;
-  letter-spacing: -2px;
   margin-right: 10px;
-  padding-bottom: 3px;
-  box-shadow: 0 3px 8px #1d65c220;
+}
+.brand-mark img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .brand-period {
   color: var(--accent);
@@ -263,12 +260,8 @@ h1 > span {
   font-size: 20px;
   letter-spacing: -0.6px;
 }
-.mini-brand .brand-mark {
-  width: 20px;
-  height: 23px;
-  border-radius: 5px 5px 5px 1px;
-  font-size: 20px;
-  margin-right: 6px;
+.mini-brand-period {
+  color: var(--accent);
 }
 .workspace-tag {
   font-size: 7px;
@@ -768,7 +761,7 @@ h2 {
 }
 .flow-destination .brand-mark {
   grid-row: span 2;
-  width: 29px;
+  width: 32px;
   height: 32px;
   margin-top: 3px;
 }
@@ -1162,10 +1155,9 @@ form .button {
   font-size: 26px;
 }
 .site-footer .brand-mark {
-  width: 25px;
+  width: 28px;
   height: 28px;
-  font-size: 23px;
-  border-radius: 7px 7px 7px 1px;
+  border-radius: 7px;
 }
 .site-footer p,
 .site-footer > span {
@@ -1204,11 +1196,6 @@ form .button {
     padding: 17px 23px;
   }
   .mini-brand {
-    font-size: 24px;
-  }
-  .mini-brand .brand-mark {
-    width: 25px;
-    height: 28px;
     font-size: 24px;
   }
   .workspace-tag {
@@ -1456,9 +1443,8 @@ form .button {
     font-size: 28px;
   }
   .brand-mark {
-    width: 27px;
+    width: 30px;
     height: 30px;
-    font-size: 25px;
     margin-right: 7px;
   }
   .button-small {
@@ -1468,27 +1454,32 @@ form .button {
     min-height: 40px;
   }
   .hero-grid {
-    padding-top: 42px;
+    padding-top: 28px;
+    padding-bottom: 30px;
   }
   .hero-badge {
     font-size: 9px;
     padding-inline: 9px;
   }
   h1 {
-    font-size: 42px;
-    letter-spacing: -2px;
+    font-size: 39px;
+    letter-spacing: -1.7px;
   }
   .intro-copy {
     font-size: 14px;
-    margin-block: 20px 23px;
+    margin-block: 14px 17px;
   }
   .hero-actions {
     gap: 12px;
   }
   .hero-actions .button {
+    width: min(280px, 100%);
     font-size: 12px;
     padding-inline: 15px;
     gap: 10px;
+  }
+  .hero-actions .text-link {
+    display: none;
   }
   .text-link {
     font-size: 11px;
@@ -1496,16 +1487,17 @@ form .button {
   .hero-points {
     gap: 11px;
     font-size: 9px;
-    margin-top: 22px;
+    margin-top: 16px;
   }
   .hero-points svg {
     width: 13px;
   }
   .hero-demo {
     font-size: 9px;
+    margin-top: 8px;
   }
   .product-preview {
-    padding-top: 32px;
+    padding-top: 22px;
     padding-bottom: 14px;
   }
   .dashboard {
@@ -1526,11 +1518,12 @@ form .button {
   }
   .dashboard-sidebar button.sidebar-item {
     justify-content: center;
-    padding: 7px 4px;
-    font-size: 6px;
+    min-height: 44px;
+    padding: 8px 4px;
+    font-size: 8px;
   }
   .dashboard-sidebar button.sidebar-item svg {
-    width: 11px;
+    width: 12px;
   }
   .dashboard-body {
     grid-template-columns: 1fr;

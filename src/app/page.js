@@ -2,6 +2,7 @@ import RequestForm from "@/components/request-form";
 import ProductPreview from "@/components/product-preview";
 import Icon from "@/components/icon";
 import ServiceCards from "@/components/service-cards";
+import BrandMark from "@/components/brand-mark";
 
 const services = [
   {
@@ -45,7 +46,7 @@ export default function Home() {
       <header className="site-header">
         <div className="shell header-inner">
           <a className="brand" href="#main" aria-label="Akış ana sayfa">
-            <span className="brand-mark">a</span>akış
+            <BrandMark />akış
             <span className="brand-period">.</span>
           </a>
           <nav aria-label="Ana menü">
@@ -79,7 +80,7 @@ export default function Home() {
                   Hizmet talebi oluştur <Icon name="arrow" size={18} />
                 </a>
                 <a className="text-link" href="#nasil-calisir">
-                  Akış’ı keşfedin <span aria-hidden="true">↗</span>
+                  Nasıl çalışır <span aria-hidden="true">↓</span>
                 </a>
               </div>
               <div className="hero-points">
@@ -94,7 +95,7 @@ export default function Home() {
                 </span>
               </div>
               <p className="hero-demo">
-                Talep formu, başarılı gönderimde PostgreSQL’e kalıcı kayıt oluşturur.
+                Başarılı gönderimde talebiniz için kayıt numarası oluşturulur.
               </p>
             </div>
             <ProductPreview />
@@ -145,7 +146,7 @@ export default function Home() {
                 <span />
               </div>
               <div className="flow-destination">
-                <span className="brand-mark">a</span>
+                <BrandMark />
                 <strong>Hepsi tek bir Akış’ta.</strong>
                 <span>Daha az karmaşa. Daha çok kontrol.</span>
               </div>
@@ -236,8 +237,8 @@ export default function Home() {
                   <strong>Güvenli test verisi kullanın.</strong>
                   <p>
                     Yalnızca kurgusal bilgi kullanın. Sunucu doğrulamasını geçen
-                    form PostgreSQL’e kaydedilir ve size gerçek kayıt numarası
-                    döndürür. Ürün panelindeki içerikler konsept verileridir.
+                    talep kalıcı olarak kaydedilir ve size gerçek kayıt numarası
+                    döndürülür. Ürün panelindeki içerikler konsept verileridir.
                   </p>
                 </div>
               </aside>
@@ -261,7 +262,7 @@ export default function Home() {
       <footer className="shell site-footer">
         <div>
           <a className="brand" href="#main" aria-label="Akış ana sayfa">
-            <span className="brand-mark">a</span>akış
+            <BrandMark />akış
             <span className="brand-period">.</span>
           </a>
           <p>İşiniz ilerlesin. Takibi Akış’ta kalsın.</p>
