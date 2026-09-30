@@ -2,7 +2,7 @@
 
 Küçük teknik servis işletmelerinin telefon, mesaj ve notlar arasında dağılan işlerini düzenlemeyi amaçlayan **kurgusal otomasyon hizmeti**. Landing page hizmeti anlatır; talep formu gerçek sunucu doğrulamasıyla PostgreSQL üzerinde kalıcı kayıt oluşturur.
 
-**Sınır:** Sayfadaki iş takip paneli statik ürün konseptidir. Görev atama, raporlama ve bildirim otomasyonları bu teslimde geliştirilmemiştir. Çalışan ürün kapsamı landing page ve talep toplama akışıdır. Yalnızca kurgusal test verisi kullanın.
+**Sınır:** Sayfadaki beş sekmeli iş takip paneli, etkileşimli ve kurgusal bir ürün önizlemesidir; gerçek yönetim erişimi değildir. Sekmeler örnek metrikleri, işleri, grafiği ve bildirimleri değiştirir. Kimlik doğrulama, gerçek görev atama ve talep yönetimi bu teslimde geliştirilmemiştir. Çalışan ürün kapsamı landing page ile doğrulanan ve PostgreSQL'e kalıcı kayıt oluşturan talep akışıdır. Yalnızca kurgusal test verisi kullanın.
 
 - Kaynak kod: https://github.com/eraydumaan/entech
 - Canlı adres ve teslim commit bilgisi: [DELIVERY.md](DELIVERY.md)
@@ -84,7 +84,7 @@ Canlı sürüm: https://entech-seven.vercel.app
 
 ## Kullanılabilirlik
 
-Mobilde tek sütun, 16px form girişleri, etiketli alanlar, görünür klavye odağı, ana içeriğe geç bağlantısı, alan bazlı hata ilişkileri ve canlı durum mesajları vardır. İlk hatalı alana odak taşınır. Alan terk edildiğinde doğrulama ve geçerli alanlara göre ilerleme çubuğu geri bildirim verir. Hizmet kartı seçimi form alanına aktarılır. Kullanıcının hareket azaltma tercihi gözetilir. Konsept panelinin üç düğmesi görünür içeriği değiştirir; örnek veriler gerçek operasyon verisi gibi sunulmaz.
+Mobilde tek sütun, 16px form girişleri, etiketli alanlar, görünür klavye odağı, ana içeriğe geç bağlantısı, alan bazlı hata ilişkileri ve canlı durum mesajları vardır. İlk hatalı alana odak taşınır. Alan terk edildiğinde doğrulama ve geçerli alanlara göre ilerleme çubuğu geri bildirim verir. Hizmet kartı seçimi form alanına aktarılır. Kullanıcının hareket azaltma tercihi gözetilir. Konsept panelinin beş sekmesi görünür içeriği değiştirir; örnek veriler gerçek operasyon verisi gibi sunulmaz.
 
 ## Bilinen sınırlar
 
