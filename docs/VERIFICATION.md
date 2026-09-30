@@ -16,7 +16,7 @@ Yalnızca kurgusal veri kullanıldı. Durumlar araç çıktıları ve gerçek g�
 | Kalıcı kayıt                   | Neon ID 1/5/8/10/12 bağımsız bağlantı ve yeniden bağlantıyla okundu | Geçti                |
 | Gerçek tarayıcı kaydı          | Enter ile form gönderildi, ID 3 ayrı DB sorgusuyla doğrulandı       | Geçti                |
 | Dinamik hizmet seçimi          | Kart seçimi forma aktarıldı; ilerleme %0 → %25 → %100 değişti       | Geçti                |
-| Etkileşimli konsept paneli     | Talepler düğmesi başlık/açıklamayı değiştirdi; örnek etiketi görünür | Geçti               |
+| Etkileşimli konsept paneli     | Sekmeler metrik, tablo, durum, grafik ve bildirimleri birlikte değiştiriyor | Geçti          |
 | DB kısıtı                      | Doğrudan 51 karakter INSERT, SQLSTATE 23514; rollback               | Geçti                |
 | Hatalı JSON/Content-Type/boyut | 400/415/413 birim testleri                                          | Geçti                |
 | Gizli değerler                 | .env.local ve CLI auth git check-ignore ile hariç                   | Geçti                |
@@ -49,5 +49,7 @@ README kurulumunu izleyin. npm test ve npm run lint DB gerektirmez. npm run test
 320px ve 768px ölçümlerde yatay taşma yok. Kontrast düzeltmesi sonrası 41 örnek sayfa metninin hesaplanan oranları kontrol edildi; 4.5 altında sonuç kalmadı. Konsept panelin küçük iç metinleri bu kontrolde hariç tutuldu; gradient dahil tam otomatik erişilebilirlik denetimi yapılmadı. Repo push başarılı ancak anonim erişim 404; değerlendirici erişimi bekliyor.
 
 Etkileşim revizyonu sonrası 1440×1000 ve 390×844 görüntüler yeniden incelendi. Panel düğmeleri erişilebilirlik ağacında görünüyor, mobil sayfa tek sütunda ve tarayıcı hata listesi boş. Bu gözlemsel kontrol tam ekran okuyucu veya otomatik WCAG denetimi değildir.
+
+Son panel revizyonunda masaüstünde Talepler sekmesi ilk satırı “Klima bakımı”ndan “Acil klima arızası”na, grafik değerlerini `38,62,46,80,58,95,70` dizisinden `72,48,88,55,92,66,84` dizisine ve üst bildirimi “Öncelikli talep geldi” metnine çevirdi. Mobil snapshot üç sekme düğmesini erişilebilirlik ağacında gösterdi.
 
 Production deployment `READY` durumunda ve https://entech-seven.vercel.app oturumsuz HTTP 200 döndü. Canlı sayfada Talepler düğmesi başlığı değiştirdi; üçüncü hizmet kartı formda `reporting` değerini ve %25 ilerlemeyi oluşturdu; tarayıcı hata listesi boştu. İlk log taramasındaki `pg` SSL gelecek sürüm uyarısından sonra bağlantı URL'si açıkça `sslmode=verify-full` olarak normalize edildi ve iki test eklendi. Yeniden yayınlanan deployment'ta canlı entegrasyon ID 12 geçti; son error log taraması temizdi.

@@ -330,6 +330,14 @@ h1 > span {
   background: transparent;
   text-align: left;
   cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+.sidebar-item:hover {
+  background: #f2f6fb;
+  transform: translateX(1px);
 }
 .sidebar-item.selected {
   background: #edf4ff;
@@ -352,6 +360,19 @@ h1 > span {
 .dashboard-content {
   background: #f8fafd;
   padding: 19px 16px 16px;
+}
+.preview-refresh {
+  animation: preview-refresh 220ms ease-out;
+}
+@keyframes preview-refresh {
+  from {
+    opacity: 0.55;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .dashboard-heading {
   display: flex;
@@ -1344,7 +1365,25 @@ form .button {
     border-radius: 10px;
   }
   .dashboard-sidebar {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px;
+    padding: 7px;
+    border-right: 0;
+    border-bottom: 1px solid #eaf0f7;
+  }
+  .dashboard-sidebar .sidebar-label,
+  .dashboard-sidebar > span.sidebar-item,
+  .dashboard-sidebar .sidebar-bottom {
     display: none;
+  }
+  .dashboard-sidebar button.sidebar-item {
+    justify-content: center;
+    padding: 7px 4px;
+    font-size: 6px;
+  }
+  .dashboard-sidebar button.sidebar-item svg {
+    width: 11px;
   }
   .dashboard-body {
     grid-template-columns: 1fr;
@@ -1490,6 +1529,14 @@ form .button {
     scroll-behavior: auto;
   }
   .button {
+    transition: none;
+  }
+  .preview-refresh {
+    animation: none;
+  }
+  .sidebar-item,
+  .service-card,
+  .form-progress > span {
     transition: none;
   }
 }

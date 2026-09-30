@@ -116,3 +116,9 @@ Production deployment READY oldu ve https://entech-seven.vercel.app adresine ali
 İlk Vercel error log taramasında uygulama hatası yerine `pg` paketinin `sslmode=require` gelecek sürüm uyarısı görüldü. Bu yanlış alarmı ve gelecekteki belirsizliği kaldırmak için bağlantı modu uygulama, migration ve entegrasyon istemcilerinde açıkça `verify-full` değerine normalize edildi. İki birim testi eklendi. Sonuçlar 18/18 test, ESLint, production build ve uyarısız entegrasyon ID 10 olarak doğrulandı.
 
 TLS düzeltmesi Production'a yeniden yayımlandı. Canlı API testi ID 12'yi oluşturdu; bağımsız bağlantı ve yeniden bağlantı okuması, geçersiz isteğin kayıt oluşturmaması ve DB kısıtı tekrar geçti. Bu isteğin ardından final deployment için Vercel error log taraması sonuç döndürmedi.
+
+## Ürün panelinin tam etkileşim revizyonu
+
+Aday konsept panelinin hâlâ statik algılandığını belirtti. Önceki sürüm yalnızca başlık ve üç metriği değiştiriyordu; tablo, grafik ve bildirimler aynı kalıyordu. Codex bu eleştiriyi kabul etti ve üç görünüm için ayrı metrikler, tablo başlığı, üç iş satırı, durumlar, sorumlular, yedi günlük grafik değerleri ve iki bildirim tanımladı. Sekme değişiminde bütün bu parçalar birlikte değişiyor. Kısa geçiş animasyonu eklendi ve `prefers-reduced-motion` durumunda kapatıldı.
+
+Mobilde panel menüsü daha önce gizleniyordu. 390px görünümde Genel bakış, Talepler ve İş planı düğmeleri yatay dokunma alanları olarak gösterildi. Gerçek tarayıcı ölçümünde Genel bakıştan Talepler'e geçiş başlığı, ilk tablo satırını, yedi grafik yüksekliğini ve bildirimi birlikte değiştirdi. 1440×1000 ve 390×844 ekran görüntüleri incelendi; tarayıcı hata listesi boştu. Değişiklik sonrası 18/18 test, ESLint ve production build başarılıydı.

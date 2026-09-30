@@ -15,6 +15,16 @@ const PREVIEW_VIEWS = {
       ["Devam eden", "5", "Planlandı"],
       ["Tamamlanan", "8", "Bugün"],
     ],
+    table: ["Son servis talepleri", "Tüm talepler ↗"],
+    rows: [
+      ["Klima bakımı", "Deniz Örnek · #1042", "Bekliyor", "amber", "—", "blue"],
+      ["Kombi arızası", "Ekin Örnek · #1041", "Atandı", "blue", "AÖ", "violet"],
+      ["Periyodik bakım", "Can Örnek · #1040", "Tamamlandı", "teal", "SÖ", "teal"],
+    ],
+    chart: [38, 62, 46, 80, 58, 95, 70],
+    chartCopy: ["Haftalık iş akışı", "Örnek tamamlanan işler"],
+    notification: ["Yeni talep kayda alındı", "Klima bakımı · az önce"],
+    assignment: ["Doğru iş, doğru kişide.", "Görev, Ali Örnek’e atandı."],
   },
   requests: {
     copy: [
@@ -27,6 +37,16 @@ const PREVIEW_VIEWS = {
       ["Yanıt bekleyen", "3", "Takipte"],
       ["Öncelikli", "2", "Bugün"],
     ],
+    table: ["Öncelikli talepler", "Filtrele ↗"],
+    rows: [
+      ["Acil klima arızası", "Ada Örnek · #1051", "Yeni", "blue", "—", "blue"],
+      ["Parça onayı", "Mert Örnek · #1048", "Yanıt bekliyor", "amber", "DÖ", "violet"],
+      ["Bakım sözleşmesi", "Ece Örnek · #1045", "İncelemede", "violet", "SÖ", "teal"],
+    ],
+    chart: [72, 48, 88, 55, 92, 66, 84],
+    chartCopy: ["Talep yoğunluğu", "Son yedi gün"],
+    notification: ["Öncelikli talep geldi", "Acil klima arızası · şimdi"],
+    assignment: ["Yanıt sırası güncellendi.", "En acil iki talep üstte."],
   },
   schedule: {
     copy: [
@@ -39,6 +59,16 @@ const PREVIEW_VIEWS = {
       ["Devam eden", "3", "Ekipte"],
       ["Tamamlanan", "5", "Zamanında"],
     ],
+    table: ["Yaklaşan işler", "Takvimi aç ↗"],
+    rows: [
+      ["Pazartesi bakım rotası", "3 adres · 09.00", "Tamamlandı", "teal", "AÖ", "teal"],
+      ["Çarşamba montaj", "2 adres · 10.30", "Sahada", "blue", "DÖ", "blue"],
+      ["Cuma kontrol turu", "4 adres · 08.30", "Planlandı", "violet", "SÖ", "violet"],
+    ],
+    chart: [28, 70, 52, 86, 64, 76, 44],
+    chartCopy: ["Ekip kapasitesi", "Planlanan iş yükü"],
+    notification: ["Plan güncellendi", "Cuma rotasına 1 iş eklendi"],
+    assignment: ["İş yükü dengelendi.", "Üç ekip için rota hazır."],
   },
 };
 
@@ -101,7 +131,7 @@ export default function ProductPreview() {
               <span className="online-dot" /> Örnek çalışma alanı
             </div>
           </div>
-          <div className="dashboard-content">
+          <div className="dashboard-content preview-refresh" key={activeView}>
             <div className="dashboard-heading">
               <div>
                 <span className="dashboard-kicker">{kicker}</span>
@@ -143,61 +173,37 @@ export default function ProductPreview() {
             </div>
             <div className="mock-table">
               <div className="mock-table-heading">
-                <strong>Son servis talepleri</strong>
-                <span>Tüm talepler ↗</span>
+                <strong>{view.table[0]}</strong>
+                <span>{view.table[1]}</span>
               </div>
               <div className="mock-row mock-labels">
                 <span>TALEP / MÜŞTERİ</span>
                 <span>DURUM</span>
                 <span>ATANAN</span>
               </div>
-              <div className="mock-row">
-                <div className="mock-job">
-                  <span className="job-icon blue">
-                    <Icon name="tool" size={15} />
-                  </span>
-                  <span>
-                    <strong>Klima bakımı</strong>
-                    <small>Deniz Örnek · #1042</small>
-                  </span>
+              {view.rows.map(([job, detail, status, statusTone, owner, ownerTone]) => (
+                <div className="mock-row" key={job}>
+                  <div className="mock-job">
+                    <span className={`job-icon ${statusTone}`}>
+                      <Icon name="tool" size={15} />
+                    </span>
+                    <span>
+                      <strong>{job}</strong>
+                      <small>{detail}</small>
+                    </span>
+                  </div>
+                  <span className={`status-pill ${statusTone}`}>{status}</span>
+                  <span className={`mini-avatar ${ownerTone}`}>{owner}</span>
                 </div>
-                <span className="status-pill amber">Bekliyor</span>
-                <span className="mini-avatar">—</span>
-              </div>
-              <div className="mock-row">
-                <div className="mock-job">
-                  <span className="job-icon violet">
-                    <Icon name="tool" size={15} />
-                  </span>
-                  <span>
-                    <strong>Kombi arızası</strong>
-                    <small>Ekin Örnek · #1041</small>
-                  </span>
-                </div>
-                <span className="status-pill blue">Atandı</span>
-                <span className="mini-avatar violet">AÖ</span>
-              </div>
-              <div className="mock-row">
-                <div className="mock-job">
-                  <span className="job-icon teal">
-                    <Icon name="tool" size={15} />
-                  </span>
-                  <span>
-                    <strong>Periyodik bakım</strong>
-                    <small>Can Örnek · #1040</small>
-                  </span>
-                </div>
-                <span className="status-pill teal">Tamamlandı</span>
-                <span className="mini-avatar blue">SÖ</span>
-              </div>
+              ))}
             </div>
             <div className="mock-week">
               <div>
-                <strong>Haftalık iş akışı</strong>
-                <span>Örnek tamamlanan işler</span>
+                <strong>{view.chartCopy[0]}</strong>
+                <span>{view.chartCopy[1]}</span>
               </div>
               <div className="mini-chart">
-                {[38, 62, 46, 80, 58, 95, 70].map((height, i) => (
+                {view.chart.map((height, i) => (
                   <div key={i}>
                     <i style={{ height: `${height}%` }} />
                     <span>{["P", "S", "Ç", "P", "C", "C", "P"][i]}</span>
@@ -213,8 +219,8 @@ export default function ProductPreview() {
           <Icon name="check" size={18} />
         </span>
         <div>
-          <strong>Yeni talep kayda alındı</strong>
-          <span>Klima bakımı · az önce</span>
+          <strong>{view.notification[0]}</strong>
+          <span>{view.notification[1]}</span>
         </div>
         <span className="notification-dot" />
       </div>
@@ -226,8 +232,8 @@ export default function ProductPreview() {
           <Icon name="users" size={18} />
         </span>
         <div>
-          <strong>Doğru iş, doğru kişide.</strong>
-          <span>Görev, Ali Örnek’e atandı.</span>
+          <strong>{view.assignment[0]}</strong>
+          <span>{view.assignment[1]}</span>
         </div>
         <span className="tiny-avatars">
           <b>A</b>
