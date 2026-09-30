@@ -238,20 +238,14 @@ h1 > span {
   padding-block: 20px 14px;
 }
 .preview-glow {
-  position: absolute;
-  inset: -15% -12%;
-  background: radial-gradient(ellipse, #b4d6ff70, transparent 65%);
-  z-index: 0;
-  pointer-events: none;
+  display: none;
 }
 .dashboard {
   position: relative;
   background: #fff;
-  border: 1px solid #d9e4f2;
-  border-radius: 12px;
-  box-shadow:
-    0 24px 70px #254c7f1c,
-    0 4px 12px #2346770b;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
   overflow: hidden;
   transform: none;
 }
@@ -1501,7 +1495,7 @@ form .button {
   }
   .dashboard {
     transform: none;
-    border-radius: 10px;
+    border-radius: 0;
   }
   .dashboard-sidebar {
     display: grid;
@@ -1512,7 +1506,6 @@ form .button {
     border-bottom: 1px solid #eaf0f7;
   }
   .dashboard-sidebar .sidebar-label,
-  .dashboard-sidebar > span.sidebar-item,
   .dashboard-sidebar .sidebar-bottom {
     display: none;
   }

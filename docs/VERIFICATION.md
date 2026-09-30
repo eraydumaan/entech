@@ -54,4 +54,6 @@ Son panel revizyonunda masaüstünde Talepler sekmesi ilk satırı “Klima bak�
 
 Son yerleşim kontrolünde dashboard küçük hero kolonu yerine 1440px viewport içinde 1168px genişlikte ana ürün yüzeyi oldu. 390px görünümde dashboard 331px'e uydu, üç sekme görünür kaldı ve yatay taşma farkı oluşmadı. Bu değişiklik sonrası 18 test, ESLint ve production build tekrar geçti.
 
+Çerçeve kaldırma kontrolünde dashboard border değeri `0px`, box-shadow değeri `none` bulundu. Genel bakış, Talepler, İş planı, Ekibim ve Raporlar olmak üzere beş düğme erişilebilirlik ağacında ve çalışır durumda. Raporlar tıklanınca başlık “Kararlar için net raporlar”, ilk satır “Haftalık operasyon” oldu. Panel gerçek admin erişimi olarak sunulmadı; gerçek talep verisini listeleyen açık endpoint yok.
+
 Production deployment `READY` durumunda ve https://entech-seven.vercel.app oturumsuz HTTP 200 döndü. Canlı sayfada Talepler düğmesi başlığı değiştirdi; üçüncü hizmet kartı formda `reporting` değerini ve %25 ilerlemeyi oluşturdu; tarayıcı hata listesi boştu. İlk log taramasındaki `pg` SSL gelecek sürüm uyarısından sonra bağlantı URL'si açıkça `sslmode=verify-full` olarak normalize edildi ve iki test eklendi. Yeniden yayınlanan deployment'ta canlı entegrasyon ID 12 geçti; son error log taraması temizdi.

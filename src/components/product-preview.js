@@ -16,6 +16,7 @@ const PREVIEW_VIEWS = {
       ["Tamamlanan", "8", "Bugün"],
     ],
     table: ["Son servis talepleri", "Tüm talepler ↗"],
+    columns: ["TALEP / MÜŞTERİ", "DURUM", "ATANAN"],
     rows: [
       ["Klima bakımı", "Deniz Örnek · #1042", "Bekliyor", "amber", "—", "blue"],
       ["Kombi arızası", "Ekin Örnek · #1041", "Atandı", "blue", "AÖ", "violet"],
@@ -38,6 +39,7 @@ const PREVIEW_VIEWS = {
       ["Öncelikli", "2", "Bugün"],
     ],
     table: ["Öncelikli talepler", "Filtrele ↗"],
+    columns: ["TALEP / MÜŞTERİ", "DURUM", "ATANAN"],
     rows: [
       ["Acil klima arızası", "Ada Örnek · #1051", "Yeni", "blue", "—", "blue"],
       ["Parça onayı", "Mert Örnek · #1048", "Yanıt bekliyor", "amber", "DÖ", "violet"],
@@ -60,6 +62,7 @@ const PREVIEW_VIEWS = {
       ["Tamamlanan", "5", "Zamanında"],
     ],
     table: ["Yaklaşan işler", "Takvimi aç ↗"],
+    columns: ["İŞ / ZAMAN", "DURUM", "ATANAN"],
     rows: [
       ["Pazartesi bakım rotası", "3 adres · 09.00", "Tamamlandı", "teal", "AÖ", "teal"],
       ["Çarşamba montaj", "2 adres · 10.30", "Sahada", "blue", "DÖ", "blue"],
@@ -69,6 +72,52 @@ const PREVIEW_VIEWS = {
     chartCopy: ["Ekip kapasitesi", "Planlanan iş yükü"],
     notification: ["Plan güncellendi", "Cuma rotasına 1 iş eklendi"],
     assignment: ["İş yükü dengelendi.", "Üç ekip için rota hazır."],
+  },
+  team: {
+    copy: [
+      "EKİP DURUMU",
+      "Saha ekibi tek görünümde",
+      "İş yükünü ve uygunluğu kurgusal ekip verileriyle inceleyin.",
+    ],
+    metrics: [
+      ["Aktif ekip", "4", "Bugün"],
+      ["Sahadaki", "3", "Görevde"],
+      ["Müsait", "1", "Atanabilir"],
+    ],
+    table: ["Ekip iş yükü", "Ekibi görüntüle ↗"],
+    columns: ["EKİP ÜYESİ / ROL", "DURUM", "BÖLGE"],
+    rows: [
+      ["Ali Örnek", "HVAC teknisyeni", "Sahada", "blue", "K1", "blue"],
+      ["Seda Örnek", "Bakım uzmanı", "Müsait", "teal", "K2", "teal"],
+      ["Deniz Örnek", "Montaj ekibi", "Molada", "amber", "K3", "violet"],
+    ],
+    chart: [66, 48, 82, 58, 74, 44, 62],
+    chartCopy: ["Ekip kapasitesi", "Son yedi gün"],
+    notification: ["Ekip durumu güncellendi", "Bir teknisyen müsait"],
+    assignment: ["Görev dağılımı görünür.", "İş yükü ekip bazında izlendi."],
+  },
+  reports: {
+    copy: [
+      "HAFTALIK ÖZET",
+      "Kararlar için net raporlar",
+      "Tamamlama ve bekleme eğilimlerini tek ekranda karşılaştırın.",
+    ],
+    metrics: [
+      ["Tamamlama", "%86", "+8 puan"],
+      ["Ort. süre", "4,2", "Saat"],
+      ["Bekleyen", "3", "Takipte"],
+    ],
+    table: ["Rapor özetleri", "Dışa aktar ↗"],
+    columns: ["RAPOR / DÖNEM", "DURUM", "SAHİBİ"],
+    rows: [
+      ["Haftalık operasyon", "23–29 Eylül", "Hazır", "teal", "DÖ", "blue"],
+      ["Bekleme analizi", "Eylül 2026", "Güncel", "blue", "SÖ", "teal"],
+      ["Ekip kapasitesi", "Son 30 gün", "İncelemede", "violet", "AÖ", "violet"],
+    ],
+    chart: [44, 58, 52, 76, 68, 88, 92],
+    chartCopy: ["Tamamlama eğilimi", "Son yedi gün"],
+    notification: ["Haftalık rapor hazır", "8 iş zamanında tamamlandı"],
+    assignment: ["Darboğaz görünür oldu.", "Yanıt bekleyen 3 talep var."],
   },
 };
 
@@ -87,7 +136,7 @@ export default function ProductPreview() {
         <div className="dashboard-top">
           <span className="mini-brand">
             <span className="brand-mark">a</span> akış
-            <span className="workspace-tag">WORKSPACE</span>
+            <span className="workspace-tag">YÖNETİM ÖNİZLEMESİ</span>
           </span>
           <span className="dashboard-tools">
             <Icon name="bell" size={15} />
@@ -121,12 +170,22 @@ export default function ProductPreview() {
             >
               <Icon name="calendar" size={15} /> İş planı
             </button>
-            <span className="sidebar-item">
+            <button
+              type="button"
+              className={`sidebar-item ${activeView === "team" ? "selected" : ""}`}
+              aria-pressed={activeView === "team"}
+              onClick={() => setActiveView("team")}
+            >
               <Icon name="users" size={15} /> Ekibim
-            </span>
-            <span className="sidebar-item">
+            </button>
+            <button
+              type="button"
+              className={`sidebar-item ${activeView === "reports" ? "selected" : ""}`}
+              aria-pressed={activeView === "reports"}
+              onClick={() => setActiveView("reports")}
+            >
               <Icon name="chart" size={15} /> Raporlar
-            </span>
+            </button>
             <div className="sidebar-bottom">
               <span className="online-dot" /> Örnek çalışma alanı
             </div>
@@ -177,9 +236,9 @@ export default function ProductPreview() {
                 <span>{view.table[1]}</span>
               </div>
               <div className="mock-row mock-labels">
-                <span>TALEP / MÜŞTERİ</span>
-                <span>DURUM</span>
-                <span>ATANAN</span>
+                {view.columns.map((column) => (
+                  <span key={column}>{column}</span>
+                ))}
               </div>
               {view.rows.map(([job, detail, status, statusTone, owner, ownerTone]) => (
                 <div className="mock-row" key={job}>
@@ -241,7 +300,7 @@ export default function ProductPreview() {
         </span>
       </div>
       <figcaption>
-        <span className="concept-dot" /> Etkileşimli ürün konsepti · Kurgusal örnek veriler
+        <span className="concept-dot" /> Yönetim paneli önizlemesi · Kurgusal veriler, gerçek yönetim erişimi değildir
       </figcaption>
     </figure>
   );

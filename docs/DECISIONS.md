@@ -2,7 +2,11 @@
 
 ## Kapsam
 
-Değerlendirme, bir otomasyon motoru değil kurgusal hizmetin anlaşılır sayfasını ve kalıcı talep kaydını istiyor. Bu nedenle dashboard statik konsept, form gerçek uygulama olarak ayrıldı. Kimlik doğrulama ve yönetim paneli eklenmedi; zaman doğrulanabilir kayıt akışına ayrıldı.
+Değerlendirme, bir otomasyon motoru değil kurgusal hizmetin anlaşılır sayfasını ve kalıcı talep kaydını istiyor. Bu nedenle dashboard kurgusal verili etkileşimli ürün önizlemesi, form ise gerçek uygulama olarak ayrıldı. Kimlik doğrulama ve gerçek yönetim paneli eklenmedi; zaman doğrulanabilir kayıt akışına ayrıldı.
+
+## Neden gerçek admin/onay sistemi değil?
+
+Gerçek bir yönetim paneli yalnızca ekrandaki durum düğmelerinden oluşmaz. Kimlik doğrulama, rol yetkilendirmesi, korumalı okuma/güncelleme API'leri, durum geçmişi, yeni SQL migration ve kullanıcıya özel güvenli takip anahtarı gerektirir. Bunlar olmadan herkese açık “admin” arayüzü eklemek güvenlik ve ürün doğruluğu açısından yanlış olurdu. Görev bunları istemediği için panel açıkça “Yönetim paneli önizlemesi · Kurgusal veriler” diye etiketlendi; gerçek talep verisini okuyan herkese açık endpoint oluşturulmadı.
 
 ## Neden bu teknolojiler?
 
@@ -29,6 +33,6 @@ JSON gövdesi gerçek byte sayısıyla 16 KiB sınırlanır. DB bağlantıları 
 - İkinci dev sunucusu açılması uygulama hatası değildi; mevcut süreç kullanıldı.
 - Gereksiz importlar temizlendi.
 - Sunucu alan hataları dönünce disabled alan odağı, render sonrası useEffect ile düzenlendi.
-- İlk sade tasarım adayın beklentisini karşılamadı; adayın dashboard referansına göre yeniden çalışıldı. Referans gerçek özellik taahhüdüne dönüştürülmedi.
+- İlk sade tasarım adayın beklentisini karşılamadı; adayın dashboard referansına göre yeniden çalışıldı. Referans gerçek admin özelliği taahhüdüne dönüştürülmedi.
 - Tasarıma fazla zaman ayrılması teslimi geciktirdi. Son aşamada kapsam dondurulup yayın, erişim ve kanıtlar önceliklendirildi.
 - Araç kullanım limiti bir belge yazımını engelledi; işlem başarılı gösterilmedi, erişim dönünce tamamlandı.
