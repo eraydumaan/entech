@@ -7,7 +7,7 @@
 - POST /api/requests, parametreli pg sorgusu, server-only DB modülü.
 - Neon PostgreSQL tablosu; yerel ve Production kayıtları, son olarak final canlı ID 12 bağımsız bağlantıyla doğrulandı.
 - Gönderiliyor/başarı/hata; hata halinde değer koruma; eşzamanlı ikinci submit kilidi.
-- Etkileşimli ürün konsepti açık etiketli; sekmeler metrik/tablo/grafik/bildirimleri değiştiriyor, hizmet kartı → form seçimi, form ilerlemesi ve blur doğrulaması çalışıyor.
+- Tam genişlik etkileşimli ürün dashboard'u açık etiketli; sekmeler metrik/tablo/grafik/bildirimleri değiştiriyor, hizmet kartı → form seçimi, form ilerlemesi ve blur doğrulaması çalışıyor.
 - 18 test, lint ve production build geçti.
 - Masaüstü 1440px, mobil 390px/320px, tablet 768px kontrolleri geçti; son tarayıcı hata listesi boş.
 - Son sınırlı DOM kontrast kontrolünde 41 metin, başarısız eşik 0. Tam WCAG denetimi değildir.

@@ -52,4 +52,6 @@ Etkileşim revizyonu sonrası 1440×1000 ve 390×844 görüntüler yeniden incel
 
 Son panel revizyonunda masaüstünde Talepler sekmesi ilk satırı “Klima bakımı”ndan “Acil klima arızası”na, grafik değerlerini `38,62,46,80,58,95,70` dizisinden `72,48,88,55,92,66,84` dizisine ve üst bildirimi “Öncelikli talep geldi” metnine çevirdi. Mobil snapshot üç sekme düğmesini erişilebilirlik ağacında gösterdi.
 
+Son yerleşim kontrolünde dashboard küçük hero kolonu yerine 1440px viewport içinde 1168px genişlikte ana ürün yüzeyi oldu. 390px görünümde dashboard 331px'e uydu, üç sekme görünür kaldı ve yatay taşma farkı oluşmadı. Bu değişiklik sonrası 18 test, ESLint ve production build tekrar geçti.
+
 Production deployment `READY` durumunda ve https://entech-seven.vercel.app oturumsuz HTTP 200 döndü. Canlı sayfada Talepler düğmesi başlığı değiştirdi; üçüncü hizmet kartı formda `reporting` değerini ve %25 ilerlemeyi oluşturdu; tarayıcı hata listesi boştu. İlk log taramasındaki `pg` SSL gelecek sürüm uyarısından sonra bağlantı URL'si açıkça `sslmode=verify-full` olarak normalize edildi ve iki test eklendi. Yeniden yayınlanan deployment'ta canlı entegrasyon ID 12 geçti; son error log taraması temizdi.
