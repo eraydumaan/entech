@@ -270,34 +270,35 @@ export default function ProductPreview() {
                 ))}
               </div>
             </div>
+            <div className="preview-activity" aria-hidden="true">
+              <div className="preview-notification">
+                <span className="notification-icon">
+                  <Icon name="check" size={18} />
+                </span>
+                <div>
+                  <small>Anlık bildirim</small>
+                  <strong>{view.notification[0]}</strong>
+                  <span>{view.notification[1]}</span>
+                </div>
+                <span className="notification-dot" />
+              </div>
+              <div className="preview-notification">
+                <span className="notification-icon blue">
+                  <Icon name="users" size={18} />
+                </span>
+                <div>
+                  <small>Ekip hareketi</small>
+                  <strong>{view.assignment[0]}</strong>
+                  <span>{view.assignment[1]}</span>
+                </div>
+                <span className="tiny-avatars">
+                  <b>A</b>
+                  <b>S</b>
+                </span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="preview-notification notification-top" aria-hidden="true">
-        <span className="notification-icon">
-          <Icon name="check" size={18} />
-        </span>
-        <div>
-          <strong>{view.notification[0]}</strong>
-          <span>{view.notification[1]}</span>
-        </div>
-        <span className="notification-dot" />
-      </div>
-      <div
-        className="preview-notification notification-bottom"
-        aria-hidden="true"
-      >
-        <span className="notification-icon blue">
-          <Icon name="users" size={18} />
-        </span>
-        <div>
-          <strong>{view.assignment[0]}</strong>
-          <span>{view.assignment[1]}</span>
-        </div>
-        <span className="tiny-avatars">
-          <b>A</b>
-          <b>S</b>
-        </span>
       </div>
       <figcaption>
         <span className="concept-dot" /> Yönetim paneli önizlemesi · Kurgusal veriler, gerçek yönetim erişimi değildir

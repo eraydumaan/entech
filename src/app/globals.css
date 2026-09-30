@@ -580,24 +580,21 @@ h1 > span {
   color: #8390a2;
 }
 .preview-notification {
-  position: absolute;
-  z-index: 2;
+  min-width: 0;
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 12px 15px;
+  padding: 11px 13px;
   background: #fff;
-  border: 1px solid #e1e9f3;
-  box-shadow: 0 10px 35px #28446514;
-  border-radius: 10px;
+  border: 1px solid #e4ebf4;
+  box-shadow: 0 6px 18px #2844650d;
+  border-radius: 8px;
 }
-.notification-top {
-  right: -10px;
-  top: 14px;
-}
-.notification-bottom {
-  left: 24px;
-  bottom: 63px;
+.preview-activity {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 13px;
 }
 .notification-icon {
   width: 33px;
@@ -613,6 +610,20 @@ h1 > span {
   display: block;
   font-size: 10px;
   font-weight: 600;
+  line-height: 1.35;
+}
+.preview-notification div {
+  min-width: 0;
+}
+.preview-notification div > small {
+  display: block;
+  margin-bottom: 2px;
+  color: #687b94;
+  font-size: 6px;
+  font-weight: 650;
+  letter-spacing: 0.6px;
+  line-height: 1.2;
+  text-transform: uppercase;
 }
 .preview-notification div > span {
   display: block;
@@ -625,7 +636,8 @@ h1 > span {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  margin-left: 8px;
+  margin-left: auto;
+  flex: 0 0 auto;
 }
 .tiny-avatars {
   display: flex;
@@ -1321,6 +1333,9 @@ form .button {
   .preview-notification div > span {
     font-size: 9px;
   }
+  .preview-notification div > small {
+    font-size: 7px;
+  }
 }
 @media (min-width: 1500px) {
   .hero-grid {
@@ -1529,10 +1544,6 @@ form .button {
   .dashboard-heading h3 {
     font-size: 14px;
   }
-  .notification-top {
-    top: 7px;
-    right: -5px;
-  }
   .preview-notification {
     padding: 9px 11px;
     gap: 8px;
@@ -1547,9 +1558,10 @@ form .button {
     width: 27px;
     height: 27px;
   }
-  .notification-bottom {
-    left: -5px;
-    bottom: 57px;
+  .preview-activity {
+    grid-template-columns: 1fr;
+    gap: 7px;
+    margin-top: 9px;
   }
   .product-preview figcaption {
     margin-top: 34px;

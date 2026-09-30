@@ -138,3 +138,9 @@ Temizlikten sonra 18/18 birim testi, ESLint ve production build geçti. Gerçek 
 Kaynak depo özel durumdaydı. Public yapma işlemi, tüm repo içeriğini dışa açtığı için Codex otomatik güvenlik incelemesi tarafından açık kullanıcı onayı istenerek durduruldu. Bu durum başarılı erişim gibi yazılmadı; public erişim ancak aday açıkça onaylarsa tamamlanacak.
 
 Temizlik commit'i GitHub main dalına gönderildi ve yerel/uzak SHA eşleşti. İlk Vercel yayın komutu özel config dizinini ortam değişkeniyle vermeyi denedi; CLI bu ayarı kullanmayıp Windows profilinde EXDEV hatası verdi. Hata başarılı gösterilmedi. CLI yardımından belgelenmiş `-Q .vercel-cli` seçeneği bulunup aynı yayın bununla tekrarlandı ve Production `READY` oldu. Canlı kök adres HTTP 200, güvenlik başlıkları mevcut, geçersiz istek 422 idi. Kurgusal entegrasyon kaydı ID 14 olarak yazıldı; bağımsız bağlantı ve yeniden bağlantı okuması geçti. Son Production error log taramasında sonuç bulunmadı.
+
+## Bildirim yerleşimi düzeltmesi
+
+Aday dashboard üzerindeki iki yüzen bildirim kartını görsel olarak zayıf buldu. Codex kartları panelin üstüne binen mutlak konumlarından çıkardı; haftalık grafik altında aynı hizada duran “Anlık bildirim” ve “Ekip hareketi” alanlarına dönüştürdü. İçerikler aktif sekmeyle birlikte değişmeye devam ediyor. Mobilde kartlar tek sütuna iniyor. 1440px tam sayfa ve 390px mobil görüntüler incelendi; mobilde belge genişliği viewport ile aynıydı ve tarayıcı hata listesi boştu.
+
+Yerel geliştirme görünümünün sol altındaki `N` düğmesinin Next.js geliştirme araçları olduğu açıklandı. Düğme `npm run dev` sırasında Next.js tarafından eklenir; Production build'in uygulama arayüzüne dahil değildir. Bu nedenle uygulama koduyla gizlenmedi.
