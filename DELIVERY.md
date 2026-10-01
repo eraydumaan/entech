@@ -17,4 +17,4 @@ Sunucunun kabul ettiği son teslimdeki commit değerlendirilir. Sonraki push tes
 
 ## Erişim durumu
 
-Canlı URL oturumsuz HTTP 200 döndü. Son Production API kurgusal kaydı Neon'a yazdı ve ID 14 bağımsız bağlantı/yeniden bağlantıyla okundu. Kod GitHub main dalına gönderildi; depo şu anda özel olduğu için değerlendiriciye repo daveti verilmeli veya adayın açık onayıyla depo public yapılmalı.
+Canlı URL oturumsuz HTTP 200 döndü. Son Production API kurgusal kaydı Neon'a yazdı ve ID 17 bağımsız bağlantı/yeniden bağlantıyla okundu. Kod GitHub `main` dalına gönderildi; depo anonim istekte HTTP 200 döndüğü için değerlendirici kaynak koda erişebilir. Teslim alanına son push sonrasında doğrulanan tam commit SHA girilmelidir.

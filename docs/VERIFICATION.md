@@ -21,8 +21,8 @@ Yalnızca kurgusal veri kullanıldı. Durumlar araç çıktıları ve gerçek g�
 | Hatalı JSON/Content-Type/boyut | 400/415/413 birim testleri                                          | Geçti                |
 | Gizli değerler                 | .env.local ve CLI auth git check-ignore ile hariç                   | Geçti                |
 | Kod/derleme                    | 18 test, ESLint, production build                                   | Geçti                |
-| Canlı URL ve canlı kayıt       | entech-seven.vercel.app, HTTP 200, son Production kayıt ID 14       | Geçti                |
-| İncelenebilir commit           | DELIVERY.md ile eşleştirilecek                                      | Bekliyor             |
+| Canlı URL ve canlı kayıt       | entech-seven.vercel.app, HTTP 200, son Production kayıt ID 17       | Geçti                |
+| İncelenebilir commit           | Yerel HEAD ile origin/main eşleşti; GitHub anonim HTTP 200          | Geçti                |
 
 ## Gerçek kayıtlar
 
@@ -34,6 +34,7 @@ Yalnızca kurgusal veri kullanıldı. Durumlar araç çıktıları ve gerçek g�
 - ID 10: 2026-09-30T18:01:51.845Z, açık `verify-full` ayarı sonrası uyarısız yerel entegrasyon kaydı.
 - ID 12: 2026-09-30T18:07:19.623Z, final Production API üzerinden uyarısız yazılıp bağımsız okunan kayıt.
 - ID 14: 2026-09-30T18:56:06.853Z, genel temizlik sonrası Production API üzerinden yazılıp bağımsız bağlantı ve yeniden bağlantıyla okunan kayıt.
+- ID 17: 2026-10-01T08:57:33.104Z, final teslim denetiminde Production API üzerinden yazılıp bağımsız bağlantı ve yeniden bağlantıyla okunan kurgusal kayıt.
 
 PostgreSQL identity dizileri geri alınan hatalı işlemlerde de ilerleyebilir. Bu nedenle ID aralıklarının kesintisiz olması beklenmez.
 
@@ -47,7 +48,7 @@ README kurulumunu izleyin. npm test ve npm run lint DB gerektirmez. npm run test
 
 ## Son teslim hazırlığı kontrolü
 
-320px ve 768px ölçümlerde yatay taşma yok. Kontrast düzeltmesi sonrası 41 örnek sayfa metninin hesaplanan oranları kontrol edildi; 4.5 altında sonuç kalmadı. Konsept panelin küçük iç metinleri bu kontrolde hariç tutuldu; gradient dahil tam otomatik erişilebilirlik denetimi yapılmadı. Repo push başarılı ancak anonim erişim 404; değerlendirici erişimi bekliyor.
+320px ve 768px ölçümlerde yatay taşma yok. Kontrast düzeltmesi sonrası 41 örnek sayfa metninin hesaplanan oranları kontrol edildi; 4.5 altında sonuç kalmadı. Konsept panelin küçük iç metinleri bu kontrolde hariç tutuldu; gradient dahil tam otomatik erişilebilirlik denetimi yapılmadı. Repo push başarılı ve GitHub kaynak adresi anonim istekte HTTP 200 döndü.
 
 Etkileşim revizyonu sonrası 1440×1000 ve 390×844 görüntüler yeniden incelendi. Panel düğmeleri erişilebilirlik ağacında görünüyor, mobil sayfa tek sütunda ve tarayıcı hata listesi boş. Bu gözlemsel kontrol tam ekran okuyucu veya otomatik WCAG denetimi değildir.
 
@@ -72,3 +73,5 @@ Responsive bölüm denetiminde navbar, hero, dashboard, hizmet kartları, form v
 Hero sadeleştirmesi sonrası kullanıcı arayüzünde `PostgreSQL` ve eski “Akış'ı keşfedin” metni için kaynak taraması eşleşme döndürmedi. Yeni kayıt numarası metni ve “Yönetim önizlemesi” etiketi bulundu. Mobilde ana CTA 280px, hero 1363px ve dashboard başlangıcı hero içinde 480px ölçüldü; ikincil bağlantı mobilde gizli, masaüstünde “Nasıl çalışır ↓” olarak görünür kaldı. Mobil belge genişliği viewport ile aynıydı. Dashboard mockup korunurken iç kelime işareti sadeleştirildi.
 
 Adayın sağladığı stilize `A` marka referansı tema mavisi ve şeffaf arka planla proje varlığına dönüştürüldü. Header, problem akışı ve footer aynı `BrandMark` bileşenini kullanıyor; metadata favicon'u aynı varlığa bağlı. Masaüstünde 34/32/28px, mobilde 30/32/28px kullanımlar ölçüldü. Görsel yükleme, favicon bağlantısı ve mobil yatay taşma kontrol edildi.
+
+Final teslim denetiminde 18/18 otomatik test, sıfır uyarılı ESLint, production build ve npm güvenlik taraması geçti; bilinen bağımlılık açığı bulunmadı. Canlı deployment `READY`, son bir saatlik Production hata logu boştu. Masaüstü ve 390px mobil görünüm gerçek tarayıcıda incelendi; mobilde belge ve viewport genişliği 375px olarak eşleşti. Geçersiz istemci formu API isteği üretmedi; kurgusal ID 17 kaydı API → Neon → bağımsız okuma → yeniden bağlantı zincirinde doğrulandı.
